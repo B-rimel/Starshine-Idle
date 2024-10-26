@@ -1,15 +1,32 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterLink } from 'vue-router'
+import { ref } from 'vue'
+import StarInterface from './components/StarInterface/StarInterface.vue'
+import StarSidebar from './components/StarSidebar/StarSidebar.vue'
+import StarDatabase from './assets/StarDatabase.json'
+
+function updateStardustCount() {
+  let initial = 0
+  for (const star of StarDatabase.starsDatabase.filter(
+    star => star.unlocked === true,
+  )) {
+    initial += star.stardustGeneration * star.owned
+  }
+  return initial
+}
+
+const stardustCount = ref(10)
+let interval
+
+// eslint-disable-next-line prefer-const, @typescript-eslint/no-unused-vars
+interval = setInterval(() => {
+  stardustCount.value += updateStardustCount()
+}, 1000)
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
@@ -17,69 +34,9 @@ import HelloWorld from './components/HelloWorld.vue'
     </div>
   </header>
 
-  <RouterView />
+  <p>Stardust : {{ stardustCount }}</p>
+  <StarSidebar />
+  <StarInterface />
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>
+<style scoped></style>

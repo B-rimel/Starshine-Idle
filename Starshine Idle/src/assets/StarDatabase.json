@@ -1,0 +1,31 @@
+{
+  "starsDatabase": [
+    {
+      "starName": "Beginner Star",
+      "id": 1,
+      "rarity": "common",
+      "description": "This is the beginner star. Look at it go!",
+      "stardustGeneration": 10,
+      "unlocked": true,
+      "owned": 10
+    },
+    {
+      "starName": "Omega Star",
+      "id": 2,
+      "rarity": "legendary",
+      "description": "Nobody will ever surpass this star. It's the ultimate lifeform!",
+      "stardustGeneration": 100,
+      "unlocked": true,
+      "owned": 0
+    },
+    {
+      "starName": "Overachiever Star",
+      "id": 3,
+      "rarity": "unique",
+      "description": "...Yeah ok we messed up lol",
+      "stardustGeneration": 101,
+      "unlocked": true,
+      "owned": 0
+    }
+  ]
+}
