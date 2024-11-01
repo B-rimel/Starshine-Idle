@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
+// import { RouterLink } from 'vue-router'
 import { ref } from 'vue'
 import StarInterface from './components/StarInterface/StarInterface.vue'
 import StarSidebar from './components/StarSidebar/StarSidebar.vue'
@@ -25,18 +25,36 @@ interval = setInterval(() => {
 </script>
 
 <template>
-  <header>
+  <!-- <header>
     <div class="wrapper">
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
-  </header>
-
-  <p>Stardust : {{ stardustCount }}</p>
-  <StarSidebar />
-  <StarInterface />
+  </header> -->
+  <div id="wrapper">
+    <div id="sidebar">
+      <p>Stardust : {{ stardustCount }}</p>
+      <StarSidebar />
+    </div>
+    <div id="interface">
+      <StarInterface />
+    </div>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+#wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+#sidebar {
+  width: 33%;
+}
+
+#interface {
+  width: 67%;
+}
+</style>
