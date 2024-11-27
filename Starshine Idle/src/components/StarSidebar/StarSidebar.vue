@@ -10,7 +10,9 @@
       <p>{{ star.description }}</p>
       <p>Next upgrade : {{ star.cost }} Stardust</p>
       <p>Generates {{ star.stardustGeneration }} Stardust</p>
-      <button v-on:click="event => buyStar(star, event)">Level up!</button>
+      <button v-on:click="event => buyStar(star)">
+        {{ star.owned > 0 ? 'Level up' : 'Buy' }}
+      </button>
     </div>
   </div>
 </template>
@@ -24,7 +26,7 @@ import { useCurrencyStore } from '../../stores/currency'
 
 const currencyStore = useCurrencyStore()
 
-function buyStar(star: object) {
+function buyStar(star: object[any]) {
   console.log(star)
 
   const previsionalCost = star.cost * Math.pow(1.03, star.owned)
