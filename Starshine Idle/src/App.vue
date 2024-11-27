@@ -39,7 +39,7 @@ interval = setInterval(() => {
   </header> -->
   <div id="wrapper">
     <div id="sidebar">
-      <p>Stardust : {{ currencyStore.stardustCount }}</p>
+      <p>Stardust : {{ Math.floor(currencyStore.stardustCount) }}</p>
       <StarSidebar />
     </div>
     <div id="interface">

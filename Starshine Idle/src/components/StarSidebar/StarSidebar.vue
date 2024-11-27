@@ -32,6 +32,9 @@ function buyStar(star: object) {
     console.log('La currency est suffisante', currencyStore.stardustCount)
     star.cost = Math.floor(previsionalCost)
     star.owned += 1
+    star.stardustGeneration = Math.floor(
+      star.stardustGeneration * Math.pow(1.02, star.owned),
+    )
     currencyStore.stardustCount -= previsionalCost
     console.log(star)
   }
