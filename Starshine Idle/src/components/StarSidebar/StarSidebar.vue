@@ -42,7 +42,6 @@ function buyStar(star: Star) {
 
   const previsionalCost = star.cost * Math.pow(1.03, star.owned)
   if (previsionalCost < currencyStore.stardustCount) {
-    console.log('La currency est suffisante', currencyStore.stardustCount)
     star.cost = Math.floor(previsionalCost)
     star.owned += 1
     star.stardustGeneration = Math.floor(

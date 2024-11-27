@@ -1,6 +1,5 @@
 <script setup lang="ts">
 // import { RouterLink } from 'vue-router'
-import { ref } from 'vue'
 import StarInterface from './components/StarInterface/StarInterface.vue'
 import StarSidebar from './components/StarSidebar/StarSidebar.vue'
 import StarDatabase from './assets/StarDatabase.json'

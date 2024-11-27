@@ -39,6 +39,16 @@
       "stardustGeneration": 101,
       "unlocked": false,
       "owned": 0
+    },
+    {
+      "starName": "Hollywood Star",
+      "id": 5,
+      "cost": 2,
+      "rarity": "common",
+      "description": "On a pas les droits mais balek tkt",
+      "stardustGeneration": 2,
+      "unlocked": false,
+      "owned": 0
     }
   ]
 }
