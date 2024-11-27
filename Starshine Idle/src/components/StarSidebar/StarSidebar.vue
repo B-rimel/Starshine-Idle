@@ -26,7 +26,18 @@ import { useCurrencyStore } from '../../stores/currency'
 
 const currencyStore = useCurrencyStore()
 
-function buyStar(star: object[any]) {
+interface Star {
+  starName: string
+  id: number
+  cost: number
+  rarity: string
+  description: string
+  stardustGeneration: number
+  unlocked: boolean
+  owned: number
+}
+
+function buyStar(star: Star) {
   console.log(star)
 
   const previsionalCost = star.cost * Math.pow(1.03, star.owned)
