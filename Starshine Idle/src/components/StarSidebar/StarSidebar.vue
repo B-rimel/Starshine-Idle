@@ -16,7 +16,9 @@
 </template>
 
 <script setup lang="ts">
-import StarDatabase from '../../assets/StarDatabase.json'
+import { ref } from 'vue'
+import database from '../../assets/StarDatabase.json'
+const StarDatabase = ref(database)
 
 import { useCurrencyStore } from '../../stores/currency'
 
@@ -41,8 +43,8 @@ function buyStar(star, event) {
     star.cost = previsionalCost
     star.owned += 1
     currencyStore.stardustCount -= previsionalCost
+    console.log(star)
   }
-  console.log(Math.floor(previsionalCost))
 }
 </script>
 
