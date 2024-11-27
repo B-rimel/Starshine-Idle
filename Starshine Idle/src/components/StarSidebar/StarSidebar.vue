@@ -1,5 +1,4 @@
 <template>
-  <p>Oui</p>
   <div
     v-for="star in StarDatabase.starsDatabase"
     id="starBubble"
