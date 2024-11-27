@@ -5,6 +5,11 @@ import StarInterface from './components/StarInterface/StarInterface.vue'
 import StarSidebar from './components/StarSidebar/StarSidebar.vue'
 import StarDatabase from './assets/StarDatabase.json'
 
+import { useCurrencyStore } from './stores/currency'
+
+const currencyStore = useCurrencyStore()
+
+console.log(currencyStore.stardustCount) // outputs 10
 function updateStardustCount() {
   let initial = 0
   for (const star of StarDatabase.starsDatabase.filter(
@@ -15,12 +20,11 @@ function updateStardustCount() {
   return initial
 }
 
-const stardustCount = ref(10)
 let interval
 
 // eslint-disable-next-line prefer-const, @typescript-eslint/no-unused-vars
 interval = setInterval(() => {
-  stardustCount.value += updateStardustCount()
+  currencyStore.stardustCount += updateStardustCount()
 }, 1000)
 </script>
 
@@ -35,7 +39,7 @@ interval = setInterval(() => {
   </header> -->
   <div id="wrapper">
     <div id="sidebar">
-      <p>Stardust : {{ stardustCount }}</p>
+      <p>Stardust : {{ currencyStore.stardustCount }}</p>
       <StarSidebar />
     </div>
     <div id="interface">

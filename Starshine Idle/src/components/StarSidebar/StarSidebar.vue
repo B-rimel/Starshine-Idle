@@ -18,6 +18,10 @@
 <script setup lang="ts">
 import StarDatabase from '../../assets/StarDatabase.json'
 
+import { useCurrencyStore } from '../../stores/currency'
+
+const currencyStore = useCurrencyStore()
+
 function buyStar(star, event) {
   console.log(star)
   const boundingBox = event.target.getBoundingClientRect()
@@ -32,6 +36,12 @@ function buyStar(star, event) {
   console.log(isMouseOverButton)
 
   const previsionalCost = star.cost * Math.pow(1.03, star.owned)
+  if (previsionalCost < currencyStore.stardustCount) {
+    console.log('La currency est suffisante', currencyStore.stardustCount)
+    star.cost = previsionalCost
+    star.owned += 1
+    currencyStore.stardustCount -= previsionalCost
+  }
   console.log(Math.floor(previsionalCost))
 }
 </script>
