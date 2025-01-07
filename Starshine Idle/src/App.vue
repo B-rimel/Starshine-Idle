@@ -20,7 +20,6 @@ onBeforeMount(() => {
 
 const lastSave = ref(new Date(playerStore.lastSave))
 
-console.log(currencyStore.stardustCount) // outputs 10
 function updateStardustCount() {
   let initial = 0
   for (const star of StarDatabase.starsDatabase.filter(
