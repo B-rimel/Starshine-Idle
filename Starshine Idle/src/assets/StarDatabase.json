@@ -49,6 +49,16 @@
       "stardustGeneration": 2,
       "unlocked": false,
       "owned": 0
+    },
+    {
+      "starName": "L'autre étoile",
+      "id": 6,
+      "cost": 2,
+      "rarity": "common",
+      "description": "On a pas les droits mais balek tkt",
+      "stardustGeneration": 2,
+      "unlocked": false,
+      "owned": 0
     }
   ]
 }

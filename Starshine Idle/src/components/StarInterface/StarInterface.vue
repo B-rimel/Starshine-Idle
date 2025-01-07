@@ -1,13 +1,11 @@
 <template>
-  <div v-on:click="click()">
+  <div @click="onClick">
     <img src="../../assets/Assets/clic.webp" alt="" srcset="" />
   </div>
 </template>
 
-<script lang="ts">
-function click() {
+<script setup>
+function onClick() {
   console.log('clic')
 }
 </script>
-
-<style scoped></style>

@@ -4,9 +4,21 @@ import StarInterface from './components/StarInterface/StarInterface.vue'
 import StarSidebar from './components/StarSidebar/StarSidebar.vue'
 import StarDatabase from './assets/StarDatabase.json'
 
+import { onBeforeMount, ref } from 'vue'
+
 import { useCurrencyStore } from './stores/currency'
+import { usePlayerStore } from './stores/player'
 
 const currencyStore = useCurrencyStore()
+const playerStore = usePlayerStore()
+
+onBeforeMount(() => {
+  currencyStore.stardustCount = parseInt(
+    (localStorage.getItem('stardust') as string) ?? 0,
+  )
+})
+
+const lastSave = ref(new Date(playerStore.lastSave))
 
 console.log(currencyStore.stardustCount) // outputs 10
 function updateStardustCount() {
@@ -24,6 +36,8 @@ let interval
 // eslint-disable-next-line prefer-const, @typescript-eslint/no-unused-vars
 interval = setInterval(() => {
   currencyStore.stardustCount += updateStardustCount()
+  playerStore.lastSave = Date.now()
+  localStorage.setItem('stardust', JSON.stringify(currencyStore.stardustCount))
 }, 1000)
 </script>
 
@@ -39,6 +53,7 @@ interval = setInterval(() => {
   <div id="wrapper">
     <div id="sidebar">
       <p>Stardust : {{ Math.floor(currencyStore.stardustCount) }}</p>
+      <p>Last save on : {{ lastSave }}</p>
       <StarSidebar />
     </div>
     <div id="interface">
