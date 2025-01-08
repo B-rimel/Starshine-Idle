@@ -12,13 +12,16 @@ import { usePlayerStore } from './stores/player'
 const currencyStore = useCurrencyStore()
 const playerStore = usePlayerStore()
 
+const lastSave = ref(new Date(playerStore.lastSave))
+
 onBeforeMount(() => {
   currencyStore.stardustCount = parseInt(
     (localStorage.getItem('stardust') as string) ?? 0,
   )
+  if (Date.now() > lastSave.value.getTime() + 5 * 60 * 1000) {
+    //Do something
+  }
 })
-
-const lastSave = ref(new Date(playerStore.lastSave))
 
 function updateStardustCount() {
   let initial = 0
@@ -52,7 +55,6 @@ interval = setInterval(() => {
   <div id="wrapper">
     <div id="sidebar">
       <p>Stardust : {{ Math.floor(currencyStore.stardustCount) }}</p>
-      <p>Last save on : {{ lastSave }}</p>
       <StarSidebar />
     </div>
     <div id="interface">
