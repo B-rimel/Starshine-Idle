@@ -1,6 +1,7 @@
 <script setup lang="ts">
 // import { RouterLink } from 'vue-router'
 import StarInterface from './components/StarInterface/StarInterface.vue'
+import StarGacha from './components/StarGacha/StarGacha.vue'
 import StarSidebar from './components/StarSidebar/StarSidebar.vue'
 import StarDatabase from './assets/StarDatabase.json'
 
@@ -29,6 +30,7 @@ function updateStardustCount() {
     star => star.unlocked === true,
   )) {
     initial += star.stardustGeneration * star.owned
+    // console.log("L'étoile" + star.starName + 'génère' + star.stardustGeneration)
   }
   return initial
 }
@@ -40,25 +42,18 @@ interval = setInterval(() => {
   currencyStore.stardustCount += updateStardustCount()
   playerStore.lastSave = Date.now()
   localStorage.setItem('stardust', JSON.stringify(currencyStore.stardustCount))
+  localStorage.setItem('stardb', JSON.stringify(StarDatabase.starsDatabase))
 }, 1000)
 </script>
 
 <template>
-  <!-- <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header> -->
   <div id="wrapper">
     <div id="sidebar">
       <p>Stardust : {{ Math.floor(currencyStore.stardustCount) }}</p>
       <StarSidebar />
     </div>
     <div id="interface">
-      <StarInterface />
+      <StarGacha />
     </div>
   </div>
 </template>

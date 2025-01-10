@@ -1,6 +1,8 @@
 <template>
   <div
-    v-for="star in StarDatabase.starsDatabase"
+    v-for="star in StarDatabase.starsDatabase.filter(
+      star => star.unlocked == true,
+    )"
     id="starBubble"
     v-bind:key="star.id"
   >
@@ -38,17 +40,18 @@ interface Star {
 }
 
 function buyStar(star: Star) {
-  console.log(star)
-
   const previsionalCost = star.cost * Math.pow(1.03, star.owned)
   if (previsionalCost < currencyStore.stardustCount) {
     star.cost = Math.floor(previsionalCost)
     star.owned += 1
+
     star.stardustGeneration = Math.floor(
       star.stardustGeneration * Math.pow(1.02, star.owned),
     )
     currencyStore.stardustCount -= previsionalCost
-    console.log(star)
+    if (0 > star.owned) {
+      star.unlocked = true
+    }
   }
 }
 </script>

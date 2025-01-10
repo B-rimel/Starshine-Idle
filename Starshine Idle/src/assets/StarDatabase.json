@@ -8,7 +8,8 @@
       "description": "This is the beginner star. Look at it go!",
       "stardustGeneration": 10,
       "unlocked": true,
-      "owned": 10
+      "owned": 10,
+      "weight": 10
     },
     {
       "starName": "Omega Star",
@@ -18,7 +19,8 @@
       "description": "Nobody will ever surpass this star. It's the ultimate lifeform !",
       "stardustGeneration": 100,
       "unlocked": true,
-      "owned": 0
+      "owned": 0,
+      "weight": 10
     },
     {
       "starName": "Overachiever Star",
@@ -28,7 +30,8 @@
       "description": "...Yeah ok we messed up lol",
       "stardustGeneration": 101,
       "unlocked": true,
-      "owned": 0
+      "owned": 0,
+      "weight": 10
     },
     {
       "starName": "Third Star",
@@ -38,7 +41,8 @@
       "description": "It showed up on my doorstep",
       "stardustGeneration": 101,
       "unlocked": false,
-      "owned": 0
+      "owned": 0,
+      "weight": 10
     },
     {
       "starName": "Hollywood Star",
@@ -48,7 +52,8 @@
       "description": "On a pas les droits mais balek tkt",
       "stardustGeneration": 2,
       "unlocked": false,
-      "owned": 0
+      "owned": 0,
+      "weight": 10
     },
     {
       "starName": "L'autre étoile",
@@ -58,7 +63,8 @@
       "description": "On a pas les droits mais balek tkt",
       "stardustGeneration": 2,
       "unlocked": false,
-      "owned": 0
+      "owned": 0,
+      "weight": 10
     }
   ]
 }
