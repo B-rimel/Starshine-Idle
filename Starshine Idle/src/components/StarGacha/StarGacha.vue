@@ -16,17 +16,6 @@ import { ref } from 'vue'
 import database from '../../assets/StarDatabase.json'
 const StarDatabase = ref(database)
 
-interface Star {
-  starName: string
-  id: number
-  cost: number
-  rarity: string
-  description: string
-  stardustGeneration: number
-  unlocked: boolean
-  owned: number
-}
-
 function pullGacha() {
   const pullArray = []
   for (const star of StarDatabase.value.starsDatabase.filter(
@@ -48,6 +37,7 @@ function pullGacha() {
   } else {
     console.log('Star not found')
   }
+  console.log(database.starsDatabase.filter(star => star.unlocked == false))
 }
 </script>
 
