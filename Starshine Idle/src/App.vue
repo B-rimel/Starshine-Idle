@@ -54,6 +54,7 @@ interval = setInterval(() => {
     </div>
     <div id="interface">
       <StarGacha />
+      <StarInterface />
     </div>
   </div>
 </template>
