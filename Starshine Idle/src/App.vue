@@ -13,20 +13,31 @@ import { usePlayerStore } from './stores/player'
 const currencyStore = useCurrencyStore()
 const playerStore = usePlayerStore()
 
+let database = StarDatabase.starsDatabase
+console.log(database)
+
 const lastSave = ref(new Date(playerStore.lastSave))
 
 onBeforeMount(() => {
   currencyStore.stardustCount = parseInt(
     (localStorage.getItem('stardust') as string) ?? 0,
   )
+  if(localStorage.getItem('stardb')){
+    playerStore.starDb = JSON.parse(localStorage.getItem('stardb') as string)
+    StarDatabase.starsDatabase = playerStore.starDb
+    console.log("Database loaded")
+  }
+
+
+
   if (Date.now() > lastSave.value.getTime() + 5 * 60 * 1000) {
-    //Do something
+    console.log("Last save was a while ago")
   }
 })
 
 function updateStardustCount() {
   let initial = 0
-  for (const star of StarDatabase.starsDatabase.filter(
+  for (const star of database.filter(
     star => star.unlocked === true,
   )) {
     initial += star.stardustGeneration * star.owned
@@ -42,7 +53,8 @@ interval = setInterval(() => {
   currencyStore.stardustCount += updateStardustCount()
   playerStore.lastSave = Date.now()
   localStorage.setItem('stardust', JSON.stringify(currencyStore.stardustCount))
-  localStorage.setItem('stardb', JSON.stringify(StarDatabase.starsDatabase))
+  localStorage.setItem('stardb', JSON.stringify(StarDatabase.starsDatabase
+  ))
 }, 1000)
 </script>
 
@@ -50,6 +62,7 @@ interval = setInterval(() => {
   <div id="wrapper">
     <div id="sidebar">
       <p>Stardust : {{ Math.floor(currencyStore.stardustCount) }}</p>
+      <button @click="currencyStore.resetStardust()">Reset gold</button>
       <StarSidebar />
     </div>
     <div id="interface">

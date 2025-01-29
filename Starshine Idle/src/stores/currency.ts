@@ -1,7 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
-import database from '../assets/StarDatabase.json'
-const StarDatabase = ref(database)
+
 
 export const useCurrencyStore = defineStore('currency', {
   state: () => ({
@@ -13,9 +11,10 @@ export const useCurrencyStore = defineStore('currency', {
 
   },
 
-  setters: ()  => {
-     updateStardustGeneration:  {
-      
-     }
+  actions: {
+    resetStardust() {
+      this.stardustCount = 0
+      console.log("Stardust reset")
+    }
   }
 })

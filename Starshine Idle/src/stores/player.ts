@@ -1,9 +1,19 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia'
+import starDatabase from "../assets/StarDatabase.json"
 
-export const usePlayerStore = defineStore('player',{
-    state: () => ({
-        lastSave: Date.now(),
-        playerCurrency: 0
-      }),
-}
-)
+
+export const usePlayerStore = defineStore('player', {
+  state: () => ({
+    lastSave: Date.now(),
+    playerCurrency: 0,
+    starDb: starDatabase.starsDatabase
+  }),
+
+  actions: {
+    saveStarDb() {
+      localStorage.setItem('stardb', JSON.stringify(this.starDb))
+      console.log(this.starDb)
+      console.log("Saved")
+    }
+  }
+})

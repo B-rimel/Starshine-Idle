@@ -12,8 +12,13 @@
 </template>
 
 <script setup lang="ts">
+
+import {useCurrencyStore} from '@/stores/currency'
+import {usePlayerStore} from "@/stores/player";
+
 const props = defineProps(['star'])
-import { useCurrencyStore } from '../../stores/currency'
+const currencyStore = useCurrencyStore()
+const playerStore = usePlayerStore()
 
 interface Star {
   starName: string
@@ -27,18 +32,22 @@ interface Star {
 }
 
 function buyStar(star: Star) {
+  const foundStar = playerStore.starDb.find(s => s.id === star.id)
   const previsionalCost = star.cost * Math.pow(1.03, star.owned)
   if (previsionalCost < currencyStore.stardustCount) {
-    star.cost = Math.floor(previsionalCost)
-    star.owned += 1
+    foundStar.cost = Math.floor(previsionalCost)
+    foundStar.owned += 1
 
-    star.stardustGeneration = Math.floor(
-      star.stardustGeneration * Math.pow(1.02, star.owned),
+    foundStar.stardustGeneration = Math.floor(
+      foundStar.stardustGeneration * Math.pow(1.02, star.owned),
     )
+    console.log(foundStar.stardustGeneration)
     currencyStore.stardustCount -= previsionalCost
-    if (0 > star.owned) {
-      star.unlocked = true
+    if (0 > foundStar.owned) {
+      foundStar.unlocked = true
     }
+    playerStore.saveStarDb()
+    console.log("db saved")
   }
 }
 </script>
