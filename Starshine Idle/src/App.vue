@@ -13,9 +13,6 @@ import { usePlayerStore } from './stores/player'
 const currencyStore = useCurrencyStore()
 const playerStore = usePlayerStore()
 
-let database = StarDatabase.starsDatabase
-console.log(database)
-
 const lastSave = ref(new Date(playerStore.lastSave))
 
 onBeforeMount(() => {
@@ -28,6 +25,9 @@ onBeforeMount(() => {
     console.log("Database loaded")
   }
 
+  if(localStorage.getItem('stargeneration')){
+    useCurrencyStore().stardustGeneration = Number(localStorage.getItem('stargeneration'))
+  }
 
 
   if (Date.now() > lastSave.value.getTime() + 5 * 60 * 1000) {
@@ -35,26 +35,18 @@ onBeforeMount(() => {
   }
 })
 
-function updateStardustCount() {
-  let initial = 0
-  for (const star of database.filter(
-    star => star.unlocked === true,
-  )) {
-    initial += star.stardustGeneration * star.owned
-    // console.log("L'étoile" + star.starName + 'génère' + star.stardustGeneration)
-  }
-  return initial
-}
+
 
 let interval
 
 // eslint-disable-next-line prefer-const, @typescript-eslint/no-unused-vars
 interval = setInterval(() => {
-  currencyStore.stardustCount += updateStardustCount()
+  currencyStore.stardustCount += useCurrencyStore().stardustGeneration
   playerStore.lastSave = Date.now()
   localStorage.setItem('stardust', JSON.stringify(currencyStore.stardustCount))
   localStorage.setItem('stardb', JSON.stringify(StarDatabase.starsDatabase
   ))
+  localStorage.setItem('stargeneration', useCurrencyStore().stardustGeneration)
 }, 1000)
 </script>
 

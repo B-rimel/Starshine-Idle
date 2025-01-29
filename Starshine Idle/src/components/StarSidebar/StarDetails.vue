@@ -5,7 +5,8 @@
     <p>{{ star.description }}</p>
     <p>Next upgrade : {{ star.cost }} Stardust</p>
     <p>Generates {{ star.stardustGeneration }} Stardust</p>
-    <button v-on:click="event => buyStar(star)">
+    <p>Total stardust generation : {{ star.stardustGeneration * star.owned }}</p>
+    <button v-on:click="buyStar(star)">
       {{ star.owned > 0 ? 'Level up' : 'Buy' }}
     </button>
   </div>
@@ -15,8 +16,8 @@
 
 import {useCurrencyStore} from '@/stores/currency'
 import {usePlayerStore} from "@/stores/player";
+import StarDatabase from '@/assets/StarDatabase.json'
 
-const props = defineProps(['star'])
 const currencyStore = useCurrencyStore()
 const playerStore = usePlayerStore()
 
@@ -47,9 +48,22 @@ function buyStar(star: Star) {
       foundStar.unlocked = true
     }
     playerStore.saveStarDb()
+    updateStardustCount()
     console.log("db saved")
   }
 }
+
+function updateStardustCount() {
+  let initial = 0
+  for (const star of StarDatabase.starsDatabase.filter(
+    star => star.unlocked === true,
+  )) {
+    initial += star.stardustGeneration * star.owned
+    // console.log("L'étoile" + star.starName + 'génère' + star.stardustGeneration)
+  }
+  useCurrencyStore().stardustGeneration += initial
+}
+
 </script>
 
 <style scoped></style>
