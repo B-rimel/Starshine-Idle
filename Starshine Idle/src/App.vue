@@ -19,23 +19,22 @@ onBeforeMount(() => {
   currencyStore.stardustCount = parseInt(
     (localStorage.getItem('stardust') as string) ?? 0,
   )
-  if(localStorage.getItem('stardb')){
+  if (localStorage.getItem('stardb')) {
     playerStore.starDb = JSON.parse(localStorage.getItem('stardb') as string)
     StarDatabase.starsDatabase = playerStore.starDb
-    console.log("Database loaded")
+    console.log('Database loaded')
   }
 
-  if(localStorage.getItem('stargeneration')){
-    useCurrencyStore().stardustGeneration = Number(localStorage.getItem('stargeneration'))
+  if (localStorage.getItem('stargeneration')) {
+    useCurrencyStore().stardustGeneration = Number(
+      localStorage.getItem('stargeneration'),
+    )
   }
-
 
   if (Date.now() > lastSave.value.getTime() + 5 * 60 * 1000) {
-    console.log("Last save was a while ago")
+    console.log('Last save was a while ago')
   }
 })
-
-
 
 let interval
 
@@ -44,8 +43,7 @@ interval = setInterval(() => {
   currencyStore.stardustCount += useCurrencyStore().stardustGeneration
   playerStore.lastSave = Date.now()
   localStorage.setItem('stardust', JSON.stringify(currencyStore.stardustCount))
-  localStorage.setItem('stardb', JSON.stringify(StarDatabase.starsDatabase
-  ))
+  localStorage.setItem('stardb', JSON.stringify(StarDatabase.starsDatabase))
   localStorage.setItem('stargeneration', useCurrencyStore().stardustGeneration)
 }, 1000)
 </script>
@@ -55,6 +53,7 @@ interval = setInterval(() => {
     <div id="sidebar">
       <p>Stardust : {{ Math.floor(currencyStore.stardustCount) }}</p>
       <button @click="currencyStore.resetStardust()">Reset gold</button>
+      <button @click="currencyStore.addStardust()">Add gold</button>
       <StarSidebar />
     </div>
     <div id="interface">

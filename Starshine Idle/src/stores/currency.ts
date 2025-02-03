@@ -15,6 +15,9 @@ export const useCurrencyStore = defineStore('currency', {
     resetStardust() {
       this.stardustCount = 0
       console.log("Stardust reset")
+    },
+    addStardust() {
+      this.stardustCount += 100
     }
   }
 })

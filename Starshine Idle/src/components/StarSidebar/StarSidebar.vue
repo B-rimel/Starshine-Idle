@@ -1,9 +1,14 @@
 <template>
   <div>
     <StarDetail
-      :star="star"
       v-for="star in StarDatabase.starsDatabase"
-      v-bind:key="star.id"
+      :key="star.id"
+      :starName="star.starName"
+      :owned="star.owned"
+      :description="star.description"
+      :cost="star.cost"
+      :stardustGeneration="star.stardustGeneration"
+      :star="star"
     />
   </div>
 </template>
@@ -13,8 +18,7 @@ import { ref } from 'vue'
 import database from '../../assets/StarDatabase.json'
 import StarDetail from './StarDetails.vue'
 const StarDatabase = ref(database)
-console.log(StarDatabase.value)
-
+console.log('database :', StarDatabase.value.starsDatabase)
 </script>
 
 <style>
