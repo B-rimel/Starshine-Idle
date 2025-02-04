@@ -34,10 +34,8 @@ onBeforeMount(() => {
   if (Date.now() > lastSave.value.getTime() + 5 * 60 * 1000) {
     console.log('Last save was a while ago')
     const now = new Date().getTime()
-    console.log(now)
 
     const timeDifference = now - lastSave.value.getDate()
-    console.log(timeDifference)
 
     currencyStore.stardustCount +=
       (currencyStore.stardustGeneration * timeDifference) / 1000
@@ -60,6 +58,9 @@ interval = setInterval(() => {
   <div id="wrapper">
     <div id="sidebar">
       <p>Stardust : {{ Math.floor(currencyStore.stardustCount) }}</p>
+      <p>
+        Currently generating {{ currencyStore.stardustGeneration }} stardust
+      </p>
       <button @click="currencyStore.resetStardust()">Reset gold</button>
       <button @click="currencyStore.addStardust()">Add gold</button>
       <StarSidebar />
