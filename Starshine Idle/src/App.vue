@@ -33,6 +33,14 @@ onBeforeMount(() => {
 
   if (Date.now() > lastSave.value.getTime() + 5 * 60 * 1000) {
     console.log('Last save was a while ago')
+    const now = new Date().getTime()
+    console.log(now)
+
+    const timeDifference = now - lastSave.value.getDate()
+    console.log(timeDifference)
+
+    currencyStore.stardustCount +=
+      (currencyStore.stardustGeneration * timeDifference) / 1000
   }
 })
 

@@ -1,5 +1,4 @@
 <template>
-  <p>Oui</p>
   <div class="detail">
     <p>{{ star.starName }}</p>
     <p>Owned : {{ star.owned }}</p>
@@ -83,7 +82,6 @@ function updateStardustCount() {
     star => star.unlocked === true,
   )) {
     initial += star.stardustGeneration * star.owned
-    // console.log("L'étoile" + star.starName + 'génère' + star.stardustGeneration)
   }
   useCurrencyStore().stardustGeneration += initial
 }
