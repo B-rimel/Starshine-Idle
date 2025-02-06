@@ -31,14 +31,15 @@ onBeforeMount(() => {
     )
   }
 
-  if (Date.now() > lastSave.value.getTime() + 5 * 60 * 1000) {
+  if (Date.now() > lastSave.value.getTime()) {
     console.log('Last save was a while ago')
     const now = new Date().getTime()
 
     const timeDifference = now - lastSave.value.getDate()
+    console.log(timeDifference)
 
-    currencyStore.stardustCount +=
-      (currencyStore.stardustGeneration * timeDifference) / 1000
+    // currencyStore.stardustCount +=
+    //   (currencyStore.stardustGeneration * timeDifference) / 1000
   }
 })
 
@@ -63,6 +64,7 @@ interval = setInterval(() => {
       </p>
       <button @click="currencyStore.resetStardust()">Reset gold</button>
       <button @click="currencyStore.addStardust()">Add gold</button>
+      <button @click="playerStore.resetGame()">Reset game</button>
       <StarSidebar />
     </div>
     <div id="interface">

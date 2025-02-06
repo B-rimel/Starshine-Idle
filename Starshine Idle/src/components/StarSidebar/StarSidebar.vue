@@ -1,7 +1,7 @@
 <template>
   <div>
     <StarDetail
-      v-for="star in StarDatabase.starsDatabase"
+      v-for="star in StarDatabase.starsDatabase.filter(star => star.unlocked)"
       :key="star.id"
       :starName="star.starName"
       :owned="star.owned"

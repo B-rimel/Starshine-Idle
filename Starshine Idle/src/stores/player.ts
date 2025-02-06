@@ -14,6 +14,13 @@ export const usePlayerStore = defineStore('player', {
       localStorage.setItem('stardb', JSON.stringify(this.starDb))
       console.log(this.starDb)
       console.log("Saved")
+    },
+    resetGame() {
+      for (const star of this.starDb) {
+              star.unlocked = false
+              star.owned = 0
+            }
     }
-  }
+
+}
 })

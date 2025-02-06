@@ -47,7 +47,9 @@ interface Star {
 
 function buyStar(star: Star) {
   console.log('initialising function...')
-  const foundStar = playerStore.starDb.find(s => s.starName === star.starName)
+  const foundStar = playerStore.starDb.find(
+    s => s.starName === star.starName,
+  ) as Star
   console.log(
     'found star is ',
     foundStar.starName,
