@@ -6,7 +6,7 @@ import StarSidebar from './components/StarSidebar/StarSidebar.vue'
 import StarDatabase from './assets/StarDatabase.json'
 import sounds from './assets/Assets/sound/sound.json'
 
-import { onBeforeMount, ref } from 'vue'
+import { onBeforeMount } from 'vue'
 
 import { useCurrencyStore } from './stores/currency'
 import { usePlayerStore } from './stores/player'
@@ -14,23 +14,23 @@ import { usePlayerStore } from './stores/player'
 const currencyStore = useCurrencyStore()
 const playerStore = usePlayerStore()
 
-const lastSave = ref(new Date(playerStore.lastSave))
+// const lastSave = ref(new Date(playerStore.lastSave))
 
 onBeforeMount(() => {
-  if (Date.now() > lastSave.value.getTime()) {
-    console.log('Last save was a while ago')
+  // if (Date.now() > lastSave.value.getTime()) {
+  //   console.log('Last save was a while ago')
 
-    const now = new Date()
-    console.log(now.toLocaleString())
-    console.log(lastSave.value)
-    const timeDifference = now - lastSave.value.getTime()
-    const timeElapsed = (now - lastSave.value.getTime()) / 1000
-    console.log(timeElapsed.toLocaleString())
-    console.log(timeDifference.toLocaleString())
+  //   const now = new Date()
+  //   console.log(now.toLocaleString())
+  //   console.log(lastSave.value)
+  //   const timeDifference = now - lastSave.value.getTime()
+  //   const timeElapsed = (now - lastSave.value.getTime()) / 1000
+  //   console.log(timeElapsed.toLocaleString())
+  //   console.log(timeDifference.toLocaleString())
 
-    // currencyStore.stardustCount +=
-    //   (currencyStore.stardustGeneration * timeDifference) / 1000
-  }
+  //   // currencyStore.stardustCount +=
+  //   //   (currencyStore.stardustGeneration * timeDifference) / 1000
+  // }
 
   currencyStore.stardustCount = parseInt(
     (localStorage.getItem('stardust') as string) ?? 0,
