@@ -7,10 +7,6 @@ export const useCurrencyStore = defineStore('currency', {
     stardustGeneration: 0
   }),
 
-  getters:  () => {
-
-  },
-
   actions: {
     resetStardust() {
       this.stardustCount = 0
