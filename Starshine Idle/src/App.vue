@@ -4,6 +4,7 @@ import StarInterface from './components/StarInterface/StarInterface.vue'
 import StarGacha from './components/StarGacha/StarGacha.vue'
 import StarSidebar from './components/StarSidebar/StarSidebar.vue'
 import StarDatabase from './assets/StarDatabase.json'
+import sounds from './assets/Assets/sound/sound.json'
 
 import { onBeforeMount, ref } from 'vue'
 
@@ -16,6 +17,21 @@ const playerStore = usePlayerStore()
 const lastSave = ref(new Date(playerStore.lastSave))
 
 onBeforeMount(() => {
+  if (Date.now() > lastSave.value.getTime()) {
+    console.log('Last save was a while ago')
+
+    const now = new Date()
+    console.log(now.toLocaleString())
+    console.log(lastSave.value)
+    const timeDifference = now - lastSave.value.getTime()
+    const timeElapsed = (now - lastSave.value.getTime()) / 1000
+    console.log(timeElapsed.toLocaleString())
+    console.log(timeDifference.toLocaleString())
+
+    // currencyStore.stardustCount +=
+    //   (currencyStore.stardustGeneration * timeDifference) / 1000
+  }
+
   currencyStore.stardustCount = parseInt(
     (localStorage.getItem('stardust') as string) ?? 0,
   )
@@ -30,17 +46,6 @@ onBeforeMount(() => {
       localStorage.getItem('stargeneration'),
     )
   }
-
-  if (Date.now() > lastSave.value.getTime()) {
-    console.log('Last save was a while ago')
-    const now = new Date().getTime()
-
-    const timeDifference = now - lastSave.value.getDate()
-    console.log(timeDifference)
-
-    // currencyStore.stardustCount +=
-    //   (currencyStore.stardustGeneration * timeDifference) / 1000
-  }
 })
 
 let interval
@@ -53,6 +58,13 @@ interval = setInterval(() => {
   localStorage.setItem('stardb', JSON.stringify(StarDatabase.starsDatabase))
   localStorage.setItem('stargeneration', useCurrencyStore().stardustGeneration)
 }, 1000)
+
+function playSound() {
+  const sound = sounds.sounds.sound1
+  const playedSound = new Audio(sound)
+  playedSound.play()
+  console.log('sound played !')
+}
 </script>
 
 <template>
@@ -65,6 +77,7 @@ interval = setInterval(() => {
       <button @click="currencyStore.resetStardust()">Reset gold</button>
       <button @click="currencyStore.addStardust()">Add gold</button>
       <button @click="playerStore.resetGame()">Reset game</button>
+      <button @click="playSound()">Click me for sound !</button>
       <StarSidebar />
     </div>
     <div id="interface">

@@ -28,6 +28,7 @@ const star = defineProps({
   stardustGeneration: Number,
   unlocked: Boolean,
   owned: Number,
+  class: String,
 })
 console.log(star)
 

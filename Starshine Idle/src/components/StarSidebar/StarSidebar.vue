@@ -8,6 +8,7 @@
       :description="star.description"
       :cost="star.cost"
       :stardustGeneration="star.stardustGeneration"
+      :class="star.rarity"
       :star="star"
     />
   </div>
