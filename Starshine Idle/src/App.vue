@@ -56,7 +56,10 @@ interval = setInterval(() => {
   playerStore.lastSave = Date.now()
   localStorage.setItem('stardust', JSON.stringify(currencyStore.stardustCount))
   localStorage.setItem('stardb', JSON.stringify(StarDatabase.starsDatabase))
-  localStorage.setItem('stargeneration', useCurrencyStore().stardustGeneration)
+  localStorage.setItem(
+    'stargeneration',
+    useCurrencyStore().stardustGeneration.toString(),
+  )
 }, 1000)
 
 function playSound() {

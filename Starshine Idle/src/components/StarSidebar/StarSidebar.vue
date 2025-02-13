@@ -4,12 +4,14 @@
       v-for="star in StarDatabase.starsDatabase.filter(star => star.unlocked)"
       :key="star.id"
       :starName="star.starName"
-      :owned="star.owned"
-      :description="star.description"
+      :id="star.id"
       :cost="star.cost"
+      :rarity="star.rarity"
+      :description="star.description"
       :stardustGeneration="star.stardustGeneration"
+      :unlocked="star.unlocked"
+      :owned="star.owned"
       :class="star.rarity"
-      :star="star"
     />
   </div>
 </template>

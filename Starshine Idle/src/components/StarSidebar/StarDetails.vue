@@ -20,16 +20,17 @@ import { usePlayerStore } from '@/stores/player'
 import StarDatabase from '@/assets/StarDatabase.json'
 
 const star = defineProps({
-  starName: String,
-  id: Number,
-  cost: Number,
-  rarity: String,
-  description: String,
-  stardustGeneration: Number,
-  unlocked: Boolean,
-  owned: Number,
-  class: String,
+  starName: { type: String, required: true },
+  id: { type: Number, required: true },
+  cost: { type: Number, required: true },
+  rarity: { type: String, required: true },
+  description: { type: String, required: true },
+  stardustGeneration: { type: Number, required: true },
+  unlocked: { type: Boolean, required: true },
+  owned: { type: Number, required: true },
+  class: { type: String, required: true },
 })
+
 console.log(star)
 
 const currencyStore = useCurrencyStore()
