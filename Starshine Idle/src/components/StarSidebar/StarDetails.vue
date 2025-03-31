@@ -21,7 +21,8 @@ import StarDatabase from '@/assets/StarDatabase.json'
 
 const star = defineProps({
   starName: { type: String, required: true },
-  id: { type: Number, required: true },
+  family: { type: String, required: false },
+  id: { type: String, required: true },
   cost: { type: Number, required: true },
   rarity: { type: String, required: true },
   description: { type: String, required: true },
@@ -38,7 +39,6 @@ const playerStore = usePlayerStore()
 
 interface Star {
   starName: string
-  family: string
   id: string
   cost: number
   rarity: string
