@@ -38,7 +38,8 @@ const playerStore = usePlayerStore()
 
 interface Star {
   starName: string
-  id: number
+  family: string
+  id: string
   cost: number
   rarity: string
   description: string
