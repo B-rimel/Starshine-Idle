@@ -66,5 +66,32 @@
       "owned": 0,
       "weight": 10
     }
+  ],
+  "families": [
+    {
+      "id": 1,
+      "familyName": "Video Games",
+      "starsId": [1, 2, 3, 4]
+    },
+    {
+      "id": 2,
+      "familyName": "Music",
+      "starsId": [5, 6, 7, 8]
+    },
+    {
+      "id": 3,
+      "familyName": "Horror",
+      "starsId": [9, 10, 11, 12]
+    },
+    {
+      "id": 4,
+      "familyName": "Manga",
+      "starsId": [13, 14, 15, 16]
+    },
+    {
+      "id": 5,
+      "familyName": "Flowers",
+      "starsId": [17, 18, 19, 20]
+    }
   ]
 }
