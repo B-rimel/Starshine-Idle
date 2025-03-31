@@ -1,97 +1,293 @@
 {
   "starsDatabase": [
     {
-      "starName": "Beginner Star",
-      "id": 1,
+      "starName": "Viola",
+      "family": "Flowers",
+      "id": "flower_1",
       "cost": 10,
       "rarity": "common",
       "description": "This is the beginner star. Look at it go!",
       "stardustGeneration": 10,
-      "unlocked": true,
-      "owned": 10,
-      "weight": 10
-    },
-    {
-      "starName": "Omega Star",
-      "id": 2,
-      "cost": 100,
-      "rarity": "legendary",
-      "description": "Nobody will ever surpass this star. It's the ultimate lifeform !",
-      "stardustGeneration": 100,
-      "unlocked": true,
+      "unlocked": false,
       "owned": 0,
-      "weight": 10
+      "weight": 100
     },
     {
-      "starName": "Overachiever Star",
-      "id": 3,
-      "cost": 101,
+      "starName": "Axel",
+      "family": "Flowers",
+      "id": "flower_2",
+      "cost": 10,
+      "rarity": "common",
+      "description": "This is the beginner star. Look at it go!",
+      "stardustGeneration": 10,
+      "unlocked": false,
+      "owned": 0,
+      "weight": 100
+    },
+    {
+      "starName": "Narcisse",
+      "family": "Flowers",
+      "id": "flower_3",
+      "cost": 10,
+      "rarity": "common",
+      "description": "This is the beginner star. Look at it go!",
+      "stardustGeneration": 10,
+      "unlocked": false,
+      "owned": 0,
+      "weight": 100
+    },
+    {
+      "starName": "Bleuet",
+      "family": "Flowers",
+      "id": "flower_4",
+      "cost": 10,
+      "rarity": "common",
+      "description": "This is the beginner star. Look at it go!",
+      "stardustGeneration": 10,
+      "unlocked": false,
+      "owned": 0,
+      "weight": 100
+    },
+    {
+      "starName": "Charles the Puppet",
+      "family": "Horror",
+      "id": "horror_1",
+      "cost": 10,
+      "rarity": "common",
+      "description": "This is the beginner star. Look at it go!",
+      "stardustGeneration": 10,
+      "unlocked": false,
+      "owned": 0,
+      "weight": 100
+    },
+    {
+      "starName": "Pain Artist",
+      "family": "Horror",
+      "id": "horror_2",
+      "cost": 10,
+      "rarity": "common",
+      "description": "This is the beginner star. Look at it go!",
+      "stardustGeneration": 10,
+      "unlocked": false,
+      "owned": 0,
+      "weight": 100
+    },
+    {
+      "starName": "Screaming Girl",
+      "family": "Horror",
+      "id": "horror_3",
+      "cost": 10,
+      "rarity": "common",
+      "description": "This is the beginner star. Look at it go!",
+      "stardustGeneration": 10,
+      "unlocked": false,
+      "owned": 0,
+      "weight": 100
+    },
+    {
+      "starName": "William the Puppet",
+      "family": "Horror",
+      "id": "horror_4",
+      "cost": 10,
+      "rarity": "common",
+      "description": "This is the beginner star. Look at it go!",
+      "stardustGeneration": 10,
+      "unlocked": false,
+      "owned": 0,
+      "weight": 100
+    },
+    {
+      "starName": "Bob",
+      "family": "Video Games",
+      "id": "game_1",
+      "cost": 10,
+      "rarity": "common",
+      "description": "This is the beginner star. Look at it go!",
+      "stardustGeneration": 10,
+      "unlocked": false,
+      "owned": 0,
+      "weight": 100
+    },
+    {
+      "starName": "El Gatito",
+      "family": "Video Games",
+      "id": "game_2",
+      "cost": 10,
+      "rarity": "common",
+      "description": "This is the beginner star. Look at it go!",
+      "stardustGeneration": 10,
+      "unlocked": false,
+      "owned": 0,
+      "weight": 100
+    },
+    {
+      "starName": "Not Rei",
+      "family": "Video Games",
+      "id": "game_3",
+      "cost": 10,
+      "rarity": "common",
+      "description": "This is the beginner star. Look at it go!",
+      "stardustGeneration": 10,
+      "unlocked": false,
+      "owned": 0,
+      "weight": 100
+    },
+    {
+      "starName": "John Yakuza",
+      "family": "Video Games",
+      "id": "game_4",
+      "cost": 10,
+      "rarity": "common",
+      "description": "This is the beginner star. Look at it go!",
+      "stardustGeneration": 10,
+      "unlocked": false,
+      "owned": 0,
+      "weight": 100
+    },
+    {
+      "starName": "Eve",
+      "family": "Manga",
+      "id": "manga_1",
+      "cost": 10,
+      "rarity": "common",
+      "description": "This is the beginner star. Look at it go!",
+      "stardustGeneration": 10,
+      "unlocked": false,
+      "owned": 0,
+      "weight": 100
+    },
+    {
+      "starName": "Salamander",
+      "family": "Manga",
+      "id": "manga_2",
+      "cost": 10,
+      "rarity": "common",
+      "description": "This is the beginner star. Look at it go!",
+      "stardustGeneration": 10,
+      "unlocked": false,
+      "owned": 0,
+      "weight": 100
+    },
+    {
+      "starName": "DIO",
+      "family": "Manga",
+      "id": "manga_3",
+      "cost": 10,
+      "rarity": "common",
+      "description": "This is the beginner star. Look at it go!",
+      "stardustGeneration": 10,
+      "unlocked": false,
+      "owned": 0,
+      "weight": 100
+    },
+    {
+      "starName": "Placeholder",
+      "family": "Manga",
+      "id": "manga_4",
+      "cost": 10,
+      "rarity": "common",
+      "description": "This is the beginner star. Look at it go!",
+      "stardustGeneration": 10,
+      "unlocked": false,
+      "owned": 0,
+      "weight": 100
+    },
+    {
+      "starName": "Wolfgang",
+      "family": "Music",
+      "id": "music_1",
+      "cost": 10,
+      "rarity": "common",
+      "description": "This is the beginner star. Look at it go!",
+      "stardustGeneration": 10,
+      "unlocked": false,
+      "owned": 0,
+      "weight": 100
+    },
+    {
+      "starName": "Electro",
+      "family": "Music",
+      "id": "music_2",
+      "cost": 10,
+      "rarity": "common",
+      "description": "This is the beginner star. Look at it go!",
+      "stardustGeneration": 10,
+      "unlocked": false,
+      "owned": 0,
+      "weight": 100
+    },
+    {
+      "starName": "Solaire",
+      "family": "Music",
+      "id": "music_3",
+      "cost": 10,
+      "rarity": "common",
+      "description": "This is the beginner star. Look at it go!",
+      "stardustGeneration": 10,
+      "unlocked": false,
+      "owned": 0,
+      "weight": 100
+    },
+    {
+      "starName": "Chess'",
+      "family": "Music",
+      "id": "music_4",
+      "cost": 10,
+      "rarity": "common",
+      "description": "This is the beginner star. Look at it go!",
+      "stardustGeneration": 10,
+      "unlocked": false,
+      "owned": 0,
+      "weight": 100
+    },
+    {
+      "starName": "Sétou Bonmec",
+      "id": "criminal_lawyer",
+      "cost": 10,
       "rarity": "unique",
-      "description": "...Yeah ok we messed up lol",
-      "stardustGeneration": 101,
-      "unlocked": true,
-      "owned": 0,
-      "weight": 10
-    },
-    {
-      "starName": "Third Star",
-      "id": 4,
-      "cost": 101,
-      "rarity": "yes",
-      "description": "It showed up on my doorstep",
-      "stardustGeneration": 101,
+      "description": "This is the beginner star. Look at it go!",
+      "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 10
+      "weight": 100
     },
     {
-      "starName": "Hollywood Star",
-      "id": 5,
-      "cost": 2,
-      "rarity": "common",
-      "description": "On a pas les droits mais balek tkt",
-      "stardustGeneration": 2,
+      "starName": "Lupus M.D",
+      "id": "its_lupus",
+      "cost": 10,
+      "rarity": "unique",
+      "description": "This is the beginner star. Look at it go!",
+      "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 10
-    },
-    {
-      "starName": "L'autre étoile",
-      "id": 6,
-      "cost": 2,
-      "rarity": "common",
-      "description": "On a pas les droits mais balek tkt",
-      "stardustGeneration": 2,
-      "unlocked": false,
-      "owned": 0,
-      "weight": 10
+      "weight": 100
     }
   ],
   "families": [
     {
       "id": 1,
       "familyName": "Video Games",
-      "starsId": [1, 2, 3, 4]
+      "starsId": ["game_1", "game_2", "game_3", "game_4"]
     },
     {
       "id": 2,
       "familyName": "Music",
-      "starsId": [5, 6, 7, 8]
+      "starsId": ["music_1", "music_2", "music_3", "music_4"]
     },
     {
       "id": 3,
       "familyName": "Horror",
-      "starsId": [9, 10, 11, 12]
+      "starsId": ["horror_1", "horror_2", "horror_3", "horror_4"]
     },
     {
       "id": 4,
       "familyName": "Manga",
-      "starsId": [13, 14, 15, 16]
+      "starsId": ["manga_1", "manga_2", "manga_3", "manga_4"]
     },
     {
       "id": 5,
       "familyName": "Flowers",
-      "starsId": [17, 18, 19, 20]
+      "starsId": ["flower_1", "flower_2", "flower_3", "flower_4"]
     }
   ]
 }
