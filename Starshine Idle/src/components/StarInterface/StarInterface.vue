@@ -5,7 +5,9 @@
 </template>
 
 <script setup lang="ts">
+import { useCurrencyStore } from '@/stores/currency'
 function onClick() {
   console.log('clic')
+  useCurrencyStore().stardustCount += 1
 }
 </script>

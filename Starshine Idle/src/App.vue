@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // import { RouterLink } from 'vue-router'
-// import StarInterface from './components/StarInterface/StarInterface.vue'
+import StarInterface from './components/StarInterface/StarInterface.vue'
 import StarGacha from './components/StarGacha/StarGacha.vue'
 import StarSidebar from './components/StarSidebar/StarSidebar.vue'
 import StarDatabase from './assets/StarDatabase.json'
@@ -44,6 +44,12 @@ interval = setInterval(() => {
   localStorage.setItem('stardust', JSON.stringify(currencyStore.stardustCount))
   localStorage.setItem('stardb', JSON.stringify(StarDatabase.starsDatabase))
 }, 1000)
+
+const currentTab = ref('StarInterface')
+const tabs = {
+  StarGacha,
+  StarInterface,
+}
 </script>
 
 <template>
@@ -53,7 +59,10 @@ interval = setInterval(() => {
       <StarSidebar />
     </div>
     <div id="interface">
-      <StarGacha />
+      <button v-for="(_, tab) in tabs" :key="tab" @click="currentTab = tab">
+        {{ tab }}
+      </button>
+      <component :is="tabs[currentTab]" />
     </div>
   </div>
 </template>
