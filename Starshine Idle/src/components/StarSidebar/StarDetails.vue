@@ -113,6 +113,7 @@ function updateStardustCount() {
 .star {
   display: flex;
   margin: auto;
+  width: 25%;
 
   img {
     width: 100px;
@@ -121,6 +122,7 @@ function updateStardustCount() {
 }
 
 .starText {
+  width: 75%;
   color: white;
 
   .starName {
