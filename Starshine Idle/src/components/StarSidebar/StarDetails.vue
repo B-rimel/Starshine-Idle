@@ -1,16 +1,23 @@
 <template>
   <div class="detail">
-    <p>{{ star.starName }}</p>
-    <p>Owned : {{ star.owned }}</p>
-    <p>{{ star.description }}</p>
-    <p>Next upgrade : {{ star.cost }} Stardust</p>
-    <p>Generates {{ star.stardustGeneration }} Stardust</p>
-    <p>
-      Total stardust generation : {{ star.stardustGeneration * star.owned }}
-    </p>
-    <button @click="buyStar(star)">
-      {{ star.owned > 0 ? 'Level up' : 'Buy' }}
-    </button>
+    <div class="star">
+      <img
+        v-bind:src="'src/assets/Assets/Stars/' + star.id + '.png'"
+        @error="onImageError"
+        alt=""
+        class="star"
+      />
+    </div>
+    <div class="starText">
+      <p class="starName">{{ star.starName }}</p>
+      <p>Level : {{ star.owned }}</p>
+      <p class="starDescription">{{ star.description }}</p>
+      <p>Generates {{ star.stardustGeneration }} Stardust</p>
+
+      <button @click="buyStar(star)" class="starButton">
+        {{ star.owned > 0 ? 'Level up' : 'Buy' }}
+      </button>
+    </div>
   </div>
 </template>
 
@@ -18,6 +25,11 @@
 import { useCurrencyStore } from '@/stores/currency'
 import { usePlayerStore } from '@/stores/player'
 import StarDatabase from '@/assets/StarDatabase.json'
+
+function onImageError(event: Event) {
+  const target = event.target as HTMLImageElement
+  target.src = 'src/assets/Assets/Stars/default.png'
+}
 
 const star = defineProps({
   starName: { type: String, required: true },
@@ -92,4 +104,42 @@ function updateStardustCount() {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.detail {
+  display: flex;
+  position: relative;
+}
+
+.star {
+  display: flex;
+  margin: auto;
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.starText {
+  color: white;
+
+  .starName {
+    font-size: 140%;
+    font-weight: 500;
+  }
+
+  .starDescription {
+    color: #fffcc5;
+  }
+  .starButton {
+    background-color: #f4a5ae;
+    color: white;
+  }
+
+  .starButton:active {
+    background-color: #d28790;
+    color: #eca9ad;
+    transition: ease-in-out 100ms;
+  }
+}
+</style>

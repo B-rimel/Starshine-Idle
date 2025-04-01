@@ -62,7 +62,7 @@ const tabs = {
       <button v-for="(_, tab) in tabs" :key="tab" @click="currentTab = tab">
         {{ tab }}
       </button>
-      <component :is="tabs[currentTab]" />
+      <component :is="tabs[currentTab as string]" />
     </div>
   </div>
 </template>
