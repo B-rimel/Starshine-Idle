@@ -62,7 +62,11 @@ const toggleGacha = () => {
       <nav class="nav">
         <button id="gachaButton" v-on:click="toggleGacha">Get new stars</button>
       </nav>
-      <StarGacha v-if="isGachaVisible" :is-visible="isGachaVisible" />
+      <StarGacha
+        v-if="isGachaVisible"
+        :is-visible="isGachaVisible"
+        @closeGacha="isGachaVisible = false"
+      />
       <StarInterface />
     </div>
   </div>

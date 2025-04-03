@@ -1,5 +1,6 @@
 <template>
-  <div class="gachaModal" v-if="isVisible">
+  <div class="gachaModal">
+    <button @click="closeButton">Close</button>
     <img
       src="/src/assets/Assets/UI/buttons/make_a_wish.svg"
       @click="pullGacha"
@@ -19,6 +20,7 @@
 import { ref } from 'vue'
 import database from '../../assets/StarDatabase.json'
 import { defineProps } from 'vue'
+import { defineEmits } from 'vue'
 
 defineProps({
   isVisible: {
@@ -26,6 +28,8 @@ defineProps({
     required: true,
   },
 })
+
+const emit = defineEmits(['closeGacha'])
 
 const StarDatabase = ref(database)
 
@@ -60,6 +64,10 @@ function pullGacha() {
     console.log('Star not found')
   }
   console.log(database.starsDatabase.filter(star => star.unlocked == false))
+}
+
+function closeButton() {
+  emit('closeGacha')
 }
 </script>
 
