@@ -14,9 +14,11 @@
       <p class="starDescription">{{ star.description }}</p>
       <p>Generates {{ star.stardustGeneration }} Stardust</p>
 
-      <button @click="buyStar(star)" class="starButton">
-        {{ star.owned > 0 ? 'Level up' : 'Buy' }}
-      </button>
+      <img
+        src="/src/assets/Assets/UI/buttons/level_up.svg"
+        alt=""
+        v-on:click="buyStar(star)"
+      />
     </div>
   </div>
 </template>
@@ -136,6 +138,7 @@ function updateStardustCount() {
   .starButton {
     background-color: #f4a5ae;
     color: white;
+    border: none;
   }
 
   .starButton:active {

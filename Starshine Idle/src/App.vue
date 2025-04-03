@@ -45,10 +45,10 @@ interval = setInterval(() => {
   localStorage.setItem('stardb', JSON.stringify(StarDatabase.starsDatabase))
 }, 1000)
 
-const currentTab = ref('StarInterface')
-const tabs = {
-  StarGacha,
-  StarInterface,
+const isGachaVisible = ref(false)
+
+const toggleGacha = () => {
+  isGachaVisible.value = !isGachaVisible.value
 }
 </script>
 
@@ -59,10 +59,11 @@ const tabs = {
       <StarSidebar />
     </div>
     <div id="interface">
-      <button v-for="(_, tab) in tabs" :key="tab" @click="currentTab = tab">
-        {{ tab }}
-      </button>
-      <component :is="tabs[currentTab as string]" />
+      <nav class="nav">
+        <button id="gachaButton" v-on:click="toggleGacha">Get new stars</button>
+      </nav>
+      <StarGacha v-if="isGachaVisible" :is-visible="isGachaVisible" />
+      <StarInterface />
     </div>
   </div>
 </template>

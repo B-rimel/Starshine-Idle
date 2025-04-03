@@ -1,21 +1,41 @@
 <template>
-  <p
-    v-for="star in StarDatabase.starsDatabase.filter(
-      star => star.unlocked == false,
-    )"
-    id="starBubble"
-    v-bind:key="star.id"
-  >
-    {{ star.starName }}
-  </p>
-  <button @click="pullGacha">Click me !</button>
+  <div class="gachaModal" v-if="isVisible">
+    <img
+      src="/src/assets/Assets/UI/buttons/make_a_wish.svg"
+      @click="pullGacha"
+    />
+    <div v-if="viewPulled == true">
+      <p>You just unlocked {{ pulled.starName }} !</p>
+      <img
+        v-bind:src="'src/assets/Assets/Stars/' + pulled.id + '.png'"
+        @error="onImageError"
+      />
+      <p>{{ pulled.description }}</p>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 import database from '../../assets/StarDatabase.json'
+import { defineProps } from 'vue'
+
+defineProps({
+  isVisible: {
+    type: Boolean,
+    required: true,
+  },
+})
+
 const StarDatabase = ref(database)
 
+function onImageError(event: Event) {
+  const target = event.target as HTMLImageElement
+  target.src = 'src/assets/Assets/Stars/default.png'
+}
+
+const viewPulled = ref(false as boolean)
+const pulled = ref()
 function pullGacha() {
   const pullArray = []
   for (const star of StarDatabase.value.starsDatabase.filter(
@@ -32,6 +52,8 @@ function pullGacha() {
   )
 
   if (foundStar) {
+    pulled.value = foundStar
+    viewPulled.value = true
     foundStar.unlocked = true
     console.log('Pulled Star:', foundStar.starName)
   } else {
@@ -53,6 +75,23 @@ function pullGacha() {
   padding: 5px;
   border-radius: 5px;
   margin: 5px;
+}
+
+.gachaModal {
+  height: 50%;
+  width: 50%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.gachaModal::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 button {

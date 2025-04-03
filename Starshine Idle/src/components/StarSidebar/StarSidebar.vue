@@ -35,11 +35,8 @@ console.log('database :', StarDatabase.value.starsDatabase)
   padding: 5px;
   border-radius: 24px;
   margin: 5px;
-  background-color: #9029d0; /* Set the base background color */
-  background-image: linear-gradient(
-    #9029d0,
-    #3b429f
-  ); /* Combine gradient and image */
+  background-color: #9029d0;
+  background-image: linear-gradient(#9029d0, #3b429f);
 }
 
 .detail::after {
