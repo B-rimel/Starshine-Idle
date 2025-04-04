@@ -12,6 +12,7 @@
       :unlocked="star.unlocked"
       :owned="star.owned"
       :class="star.rarity"
+      :imgUrl="star.imgUrl"
     />
   </div>
 </template>

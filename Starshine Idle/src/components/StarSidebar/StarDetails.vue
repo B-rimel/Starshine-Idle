@@ -1,12 +1,7 @@
 <template>
   <div class="detail">
     <div class="star">
-      <img
-        v-bind:src="'assets/Assets/Stars/' + star.id + '.png'"
-        @error="onImageError"
-        alt=""
-        class="star"
-      />
+      <img :src="star.imgUrl" alt="" class="star" />
     </div>
     <div class="starText">
       <p class="starName">{{ star.starName }}</p>
@@ -29,12 +24,8 @@ import { useCurrencyStore } from '@/stores/currency'
 import { usePlayerStore } from '@/stores/player'
 import StarDatabase from '@/assets/StarDatabase.json'
 
-function onImageError(event: Event) {
-  const target = event.target as HTMLImageElement
-  target.src = 'assets/Assets/Stars/default.png'
-}
-
 const star = defineProps({
+  imgUrl: { type: String, required: true },
   starName: { type: String, required: true },
   family: { type: String, required: false },
   id: { type: String, required: true },
