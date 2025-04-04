@@ -1,7 +1,7 @@
 <template>
   <div class="detail">
     <div class="star">
-      <img :src="star.imgUrl" alt="" class="star" />
+      <img src="../../assets/Assets/Stars/its_lupus.png" alt="" class="star" />
     </div>
     <div class="starText">
       <p class="starName">{{ star.starName }}</p>
