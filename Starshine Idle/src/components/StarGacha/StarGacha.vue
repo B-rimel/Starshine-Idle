@@ -1,17 +1,20 @@
 <template>
   <div class="gachaModal">
-    <button @click="closeButton">Close</button>
-    <img
-      src="/src/assets/Assets/UI/buttons/make_a_wish.svg"
-      @click="pullGacha"
-    />
-    <div v-if="viewPulled == true">
-      <p>You just unlocked {{ pulled.starName }} !</p>
+    <div class="gachaModalContent">
+      <button id="closeButton" @click="closeButton">Close</button>
       <img
-        v-bind:src="'src/assets/Assets/Stars/' + pulled.id + '.png'"
-        @error="onImageError"
+        id="pullButton"
+        src="/src/assets/Assets/UI/buttons/make_a_wish.svg"
+        @click="pullGacha"
       />
-      <p>{{ pulled.description }}</p>
+      <div v-if="viewPulled == true" id="pullResults">
+        <p>You just unlocked {{ pulled.starName }} !</p>
+        <img
+          v-bind:src="'src/assets/Assets/Stars/' + pulled.id + '.png'"
+          @error="onImageError"
+        />
+        <p>{{ pulled.description }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -19,8 +22,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import database from '../../assets/StarDatabase.json'
-import { defineProps } from 'vue'
-import { defineEmits } from 'vue'
 
 defineProps({
   isVisible: {
@@ -59,6 +60,7 @@ function pullGacha() {
     pulled.value = foundStar
     viewPulled.value = true
     foundStar.unlocked = true
+    foundStar.owned = 1
     console.log('Pulled Star:', foundStar.starName)
   } else {
     console.log('Star not found')
@@ -98,14 +100,48 @@ function closeButton() {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
-.gachaModal::backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
+.gachaModalContent {
+  position: relative;
+  height: 100%;
 }
 
-button {
+#closeButton {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+.closeButton {
   background-color: transparent;
   padding: 5px;
   border: 1px black solid;
   border-radius: 10px;
+}
+
+#pullResults {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+#pullButton {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  height: 100px;
+  width: 200px;
 }
 </style>

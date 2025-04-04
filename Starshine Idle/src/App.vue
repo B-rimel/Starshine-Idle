@@ -29,8 +29,7 @@ function updateStardustCount() {
   for (const star of StarDatabase.starsDatabase.filter(
     star => star.unlocked === true,
   )) {
-    initial += star.stardustGeneration * star.owned
-    // console.log("L'étoile" + star.starName + 'génère' + star.stardustGeneration)
+    initial += star.stardustGeneration
   }
   return initial
 }

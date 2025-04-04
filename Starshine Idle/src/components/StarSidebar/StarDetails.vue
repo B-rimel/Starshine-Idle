@@ -15,6 +15,7 @@
       <p>Generates {{ star.stardustGeneration }} Stardust</p>
 
       <img
+        class="buyButton"
         src="/src/assets/Assets/UI/buttons/level_up.svg"
         alt=""
         v-on:click="buyStar(star)"
@@ -63,35 +64,25 @@ interface Star {
 }
 
 function buyStar(star: Star) {
-  console.log('initialising function...')
   const foundStar = playerStore.starDb.find(
     s => s.starName === star.starName,
   ) as Star
-  console.log(
-    'found star is ',
-    foundStar.starName,
-    'and we have',
-    foundStar.owned,
-  )
+
   const previsionalCost = star.cost * Math.pow(1.03, star.owned)
   if (previsionalCost < currencyStore.stardustCount) {
     foundStar.cost = Math.floor(previsionalCost)
     foundStar.owned += 1
-    console.log('We now have', foundStar.owned)
 
     foundStar.stardustGeneration = Math.floor(
       foundStar.stardustGeneration * Math.pow(1.02, star.owned),
     )
     console.log(foundStar.stardustGeneration)
     currencyStore.stardustCount -= previsionalCost
-    if (0 > foundStar.owned) {
-      foundStar.unlocked = true
-    }
     playerStore.saveStarDb()
     updateStardustCount()
     console.log('db saved')
   } else {
-    console.log('you broke')
+    console.log('insufficient stardust')
   }
 }
 
@@ -100,7 +91,7 @@ function updateStardustCount() {
   for (const star of StarDatabase.starsDatabase.filter(
     star => star.unlocked === true,
   )) {
-    initial += star.stardustGeneration * star.owned
+    initial += star.stardustGeneration
   }
   useCurrencyStore().stardustGeneration += initial
 }
@@ -135,10 +126,16 @@ function updateStardustCount() {
   .starDescription {
     color: #fffcc5;
   }
+
   .starButton {
     background-color: #f4a5ae;
     color: white;
     border: none;
+  }
+
+  .buyButton {
+    height: 50px;
+    width: 100px;
   }
 
   .starButton:active {
