@@ -10,7 +10,8 @@
       "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 100
+      "weight": 100,
+      "imgUrl": "assets/Assets/Star/default.png"
     },
     {
       "starName": "Axel",
@@ -22,7 +23,8 @@
       "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 100
+      "weight": 100,
+      "imgUrl": "assets/Assets/Star/default.png"
     },
     {
       "starName": "Narcisse",
@@ -34,7 +36,8 @@
       "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 100
+      "weight": 100,
+      "imgUrl": "assets/Assets/Star/default.png"
     },
     {
       "starName": "Bleuet",
@@ -46,7 +49,8 @@
       "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 100
+      "weight": 100,
+      "imgUrl": "assets/Assets/Star/default.png"
     },
     {
       "starName": "Charles the Puppet",
@@ -58,7 +62,8 @@
       "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 100
+      "weight": 100,
+      "imgUrl": "assets/Assets/Star/default.png"
     },
     {
       "starName": "Pain Artist",
@@ -70,7 +75,8 @@
       "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 100
+      "weight": 100,
+      "imgUrl": "assets/Assets/Star/default.png"
     },
     {
       "starName": "Screaming Girl",
@@ -82,7 +88,8 @@
       "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 100
+      "weight": 100,
+      "imgUrl": "assets/Assets/Star/default.png"
     },
     {
       "starName": "William the Puppet",
@@ -94,7 +101,8 @@
       "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 100
+      "weight": 100,
+      "imgUrl": "assets/Assets/Star/default.png"
     },
     {
       "starName": "Bob",
@@ -106,7 +114,8 @@
       "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 100
+      "weight": 100,
+      "imgUrl": "assets/Assets/Star/default.png"
     },
     {
       "starName": "El Gatito",
@@ -118,7 +127,8 @@
       "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 100
+      "weight": 100,
+      "imgUrl": "assets/Assets/Star/default.png"
     },
     {
       "starName": "Not Rei",
@@ -130,7 +140,8 @@
       "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 100
+      "weight": 100,
+      "imgUrl": "assets/Assets/Star/default.png"
     },
     {
       "starName": "John Yakuza",
@@ -142,7 +153,8 @@
       "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 100
+      "weight": 100,
+      "imgUrl": "assets/Assets/Star/default.png"
     },
     {
       "starName": "Eve",
@@ -154,7 +166,8 @@
       "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 100
+      "weight": 100,
+      "imgUrl": "assets/Assets/Star/default.png"
     },
     {
       "starName": "Salamander",
@@ -166,7 +179,8 @@
       "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 100
+      "weight": 100,
+      "imgUrl": "assets/Assets/Star/default.png"
     },
     {
       "starName": "DIO",
@@ -178,7 +192,8 @@
       "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 100
+      "weight": 100,
+      "imgUrl": "assets/Assets/Star/default.png"
     },
     {
       "starName": "Placeholder",
@@ -190,7 +205,8 @@
       "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 100
+      "weight": 100,
+      "imgUrl": "assets/Assets/Star/default.png"
     },
     {
       "starName": "Wolfgang",
@@ -202,7 +218,8 @@
       "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 100
+      "weight": 100,
+      "imgUrl": "assets/Assets/Star/default.png"
     },
     {
       "starName": "Electro",
@@ -214,7 +231,8 @@
       "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 100
+      "weight": 100,
+      "imgUrl": "assets/Assets/Star/default.png"
     },
     {
       "starName": "Solaire",
@@ -226,7 +244,8 @@
       "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 100
+      "weight": 100,
+      "imgUrl": "assets/Assets/Star/default.png"
     },
     {
       "starName": "Chess'",
@@ -238,7 +257,8 @@
       "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 100
+      "weight": 100,
+      "imgUrl": "assets/Assets/Star/default.png"
     },
     {
       "starName": "Sétou Bonmec",
@@ -249,7 +269,8 @@
       "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 100
+      "weight": 100,
+      "imgUrl": "assets/Assets/Star/default.png"
     },
     {
       "starName": "Lupus M.D",
@@ -260,7 +281,8 @@
       "stardustGeneration": 10,
       "unlocked": false,
       "owned": 0,
-      "weight": 100
+      "weight": 100,
+      "imgUrl": "assets/Assets/Star/its_lupus.png"
     }
   ],
   "families": [
