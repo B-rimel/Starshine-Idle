@@ -2,7 +2,7 @@
   <div class="detail">
     <div class="star">
       <img
-        v-bind:src="'src/assets/Assets/Stars/' + star.id + '.png'"
+        v-bind:src="'assets/Assets/Stars/' + star.id + '.png'"
         @error="onImageError"
         alt=""
         class="star"
@@ -31,7 +31,7 @@ import StarDatabase from '@/assets/StarDatabase.json'
 
 function onImageError(event: Event) {
   const target = event.target as HTMLImageElement
-  target.src = 'src/assets/Assets/Stars/default.png'
+  target.src = 'assets/Assets/Stars/default.png'
 }
 
 const star = defineProps({
