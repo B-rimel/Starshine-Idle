@@ -289,7 +289,11 @@
     {
       "id": 1,
       "familyName": "Video Games",
-      "starsId": ["game_1", "game_2", "game_3", "game_4"]
+      "starsId": ["game_1", "game_2", "game_3", "game_4"],
+      "bonus": {
+        "bonusType": "stardustMultiplier",
+        "bonusValue": [1.5, 2, 2.5, 3]
+      }
     },
     {
       "id": 2,

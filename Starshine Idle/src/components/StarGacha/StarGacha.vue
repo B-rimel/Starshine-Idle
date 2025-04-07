@@ -65,7 +65,40 @@ function pullGacha() {
   } else {
     console.log('Star not found')
   }
-  console.log(database.starsDatabase.filter(star => star.unlocked == false))
+
+  checkStarFamily()
+  checkStarFamilyBonuses()
+}
+
+function checkStarFamily() {
+  //Get the pullled star's family
+  const pulledStarFamily = pulled.value.family
+
+  //Count the number of unlocked stars in its family
+  const unlockedStars = database.starsDatabase.filter(
+    star => star.family === pulledStarFamily && star.unlocked == true,
+  ).length
+  console.log('Unlocked stars in family:' + pulledStarFamily, unlockedStars)
+}
+
+function checkStarFamilyBonuses() {
+  const pulledStarFamily = pulled.value.family
+
+  const unlockedStars = database.starsDatabase.filter(
+    star => star.family === pulledStarFamily && star.unlocked == true,
+  ).length
+
+  const familyBonusesType = database.families.find(
+    family => family.familyName === pulledStarFamily,
+  )?.bonus?.bonusType
+
+  const familyBonusesValue = database.families.find(
+    family => family.familyName === pulledStarFamily,
+  )?.bonus?.bonusValue[unlockedStars - 1]
+
+  console.log(
+    'bonus type:' + familyBonusesType + 'bonus value:' + familyBonusesValue,
+  )
 }
 
 function closeButton() {

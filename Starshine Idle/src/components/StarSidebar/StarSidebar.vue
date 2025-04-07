@@ -22,7 +22,6 @@ import { ref } from 'vue'
 import database from '../../assets/StarDatabase.json'
 import StarDetail from './StarDetails.vue'
 const StarDatabase = ref(database)
-console.log('database :', StarDatabase.value.starsDatabase)
 </script>
 
 <style>
