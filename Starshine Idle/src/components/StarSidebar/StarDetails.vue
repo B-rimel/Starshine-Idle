@@ -1,10 +1,10 @@
 <template>
   <div class="detail">
     <div class="star">
-      <img src="../../assets/Assets/Stars/its_lupus.png" alt="" class="star" />
+      <img src="../../assets/Assets/Stars/default.png" alt="" class="star" />
     </div>
     <div class="starText">
-      <p class="starName">{{ star.starName }}</p>
+      <p class="starName">{{ star.starName }} ({{ star.rarity }})</p>
       <p>Level : {{ star.owned }}</p>
       <p class="starDescription">{{ star.description }}</p>
       <p>Generates {{ star.stardustGeneration }} Stardust</p>

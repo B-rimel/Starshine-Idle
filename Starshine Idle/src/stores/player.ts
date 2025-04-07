@@ -8,6 +8,8 @@ export const usePlayerStore = defineStore('player', {
     playerCurrency: 0,
     starDb: starDatabase.starsDatabase,
     clicPower: 1,
+    clicMultiplier: 1,
+    stardustMultiplier: 1,
   }),
 
   actions: {
