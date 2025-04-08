@@ -27,21 +27,8 @@ onBeforeMount(() => {
   }
 })
 
-function updateStardustCount() {
-  let initial = 0
-  for (const star of StarDatabase.starsDatabase.filter(
-    star => star.unlocked === true,
-  )) {
-    initial += star.stardustGeneration
-  }
-  currencyStore.stardustCount += initial * playerStore.stardustMultiplier
-  return initial
-}
-
-let interval
-
-// eslint-disable-next-line prefer-const, @typescript-eslint/no-unused-vars
-interval = setInterval(() => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const interval = setInterval(() => {
   currencyStore.stardustCount +=
     currencyStore.stardustGeneration * playerStore.stardustMultiplier
   playerStore.lastSave = Date.now()
@@ -62,7 +49,13 @@ const toggleGacha = () => {
       <p>Stardust : {{ Math.floor(currencyStore.stardustCount) }}</p>
       <p>Click multiplier : {{ usePlayerStore().clicMultiplier }}</p>
       <p>Stardust multiplier : {{ usePlayerStore().stardustMultiplier }}</p>
-      <button v-on:click="updateStardustCount">Add Stardust</button>
+      <button
+        v-on:click="
+          currencyStore.stardustCount += currencyStore.stardustGeneration
+        "
+      >
+        Add Stardust
+      </button>
       <StarSidebar />
     </div>
     <div id="interface">
