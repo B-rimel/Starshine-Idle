@@ -45,7 +45,7 @@ const viewPulled = ref(false as boolean)
 const pulled = ref()
 function pullGacha() {
   const pullArray = []
-  for (const star of StarDatabase.value.starsDatabase.filter(
+  for (const star of usePlayerStore().starDb.filter(
     star => star.unlocked == false,
   )) {
     for (let i = 0; i < star.weight; i++) {
@@ -54,7 +54,7 @@ function pullGacha() {
   }
   const pulledStar = pullArray[Math.floor(Math.random() * pullArray.length)]
 
-  const foundStar = StarDatabase.value.starsDatabase.find(
+  const foundStar = usePlayerStore().starDb.find(
     star => star.starName === pulledStar,
   )
 
@@ -63,6 +63,8 @@ function pullGacha() {
     viewPulled.value = true
     foundStar.unlocked = true
     foundStar.owned = 1
+  } else {
+    console.error('Star not found in player store')
   }
 
   checkStarFamilyBonuses()
@@ -98,6 +100,7 @@ function checkStarFamilyBonuses() {
 
       case 'clicMultiplier':
         usePlayerStore().clicMultiplier = familyBonusesValue
+        console.log(usePlayerStore().$state)
         console.log(
           pulled.value.starName,
           pulled.value.family,

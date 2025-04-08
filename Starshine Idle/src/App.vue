@@ -3,7 +3,6 @@
 import StarInterface from './components/StarInterface/StarInterface.vue'
 import StarGacha from './components/StarGacha/StarGacha.vue'
 import StarSidebar from './components/StarSidebar/StarSidebar.vue'
-import StarDatabase from './assets/StarDatabase.json'
 
 import { onBeforeMount, ref } from 'vue'
 
@@ -19,9 +18,8 @@ onBeforeMount(() => {
   currencyStore.stardustCount = parseInt(
     (localStorage.getItem('stardust') as string) ?? 0,
   )
-  StarDatabase.starsDatabase = JSON.parse(
-    (localStorage.getItem('stardb') as string) ?? '[]',
-  )
+  playerStore.starDb = JSON.parse(localStorage.getItem('stardb') as string)
+  playerStore.$state = JSON.parse(localStorage.getItem('player') as string)
   if (Date.now() > lastSave.value.getTime() + 5 * 60 * 1000) {
     //Do something
   }
@@ -33,7 +31,7 @@ const interval = setInterval(() => {
     currencyStore.stardustGeneration * playerStore.stardustMultiplier
   playerStore.lastSave = Date.now()
   localStorage.setItem('stardust', JSON.stringify(currencyStore.stardustCount))
-  localStorage.setItem('stardb', JSON.stringify(StarDatabase.starsDatabase))
+  localStorage.setItem('stardb', JSON.stringify(playerStore.starDb))
 }, 1000)
 
 const isGachaVisible = ref(false)
@@ -46,16 +44,28 @@ const toggleGacha = () => {
 <template>
   <div id="wrapper">
     <div id="sidebar">
-      <p>Stardust : {{ Math.floor(currencyStore.stardustCount) }}</p>
-      <p>Click multiplier : {{ usePlayerStore().clicMultiplier }}</p>
-      <p>Stardust multiplier : {{ usePlayerStore().stardustMultiplier }}</p>
-      <button
-        v-on:click="
-          currencyStore.stardustCount += currencyStore.stardustGeneration
-        "
-      >
-        Add Stardust
-      </button>
+      <div>
+        <p>Stardust : {{ Math.floor(currencyStore.stardustCount) }}</p>
+        <p>Click multiplier : {{ usePlayerStore().clicMultiplier }}</p>
+        <p>Stardust multiplier : {{ usePlayerStore().stardustMultiplier }}</p>
+      </div>
+      <div class="devButtons">
+        <button
+          v-on:click="
+            currencyStore.stardustCount += currencyStore.stardustGeneration
+          "
+        >
+          Add Stardust
+        </button>
+        <button v-on:click="playerStore.resetGame">Reset game</button>
+      </div>
+      <nav class="navButtons">
+        <button>Passives</button>
+        <button>Get new stars</button>
+        <button>Sort by</button>
+        <button>Collection</button>
+        <button>Achievements</button>
+      </nav>
       <StarSidebar />
     </div>
     <div id="interface">
@@ -73,6 +83,11 @@ const toggleGacha = () => {
 </template>
 
 <style scoped>
+.navButtons {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
 #wrapper {
   display: flex;
   flex-direction: row;

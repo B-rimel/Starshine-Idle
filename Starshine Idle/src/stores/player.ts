@@ -21,8 +21,7 @@ export const usePlayerStore = defineStore('player', {
         star.unlocked = false
         star.owned = 0
       }
-      useCurrencyStore().stardustGeneration = 0
-      console.log(useCurrencyStore().stardustGeneration)
+      useCurrencyStore().stardustCount = 0
     },
     handleClick() {
       const currencyStore = useCurrencyStore()

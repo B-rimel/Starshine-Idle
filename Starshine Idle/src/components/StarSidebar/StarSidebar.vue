@@ -1,7 +1,9 @@
 <template>
   <div>
     <StarDetail
-      v-for="star in StarDatabase.starsDatabase.filter(star => star.unlocked)"
+      v-for="star in usePlayerStore().starDb.filter(
+        star => star.unlocked === true,
+      )"
       :key="star.id"
       :starName="star.starName"
       :id="star.id"
@@ -18,10 +20,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import database from '../../assets/StarDatabase.json'
 import StarDetail from './StarDetails.vue'
-const StarDatabase = ref(database)
+import { usePlayerStore } from '@/stores/player'
 </script>
 
 <style>
