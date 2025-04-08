@@ -22,6 +22,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import database from '../../assets/StarDatabase.json'
+import { usePlayerStore } from '@/stores/player'
 
 defineProps({
   isVisible: {
@@ -88,17 +89,29 @@ function checkStarFamilyBonuses() {
     star => star.family === pulledStarFamily && star.unlocked == true,
   ).length
 
-  const familyBonusesType = database.families.find(
+  const familyBonusesType: string | undefined = database.families.find(
     family => family.familyName === pulledStarFamily,
   )?.bonus?.bonusType
 
-  const familyBonusesValue = database.families.find(
+  const familyBonusesValue: number | undefined = database.families.find(
     family => family.familyName === pulledStarFamily,
   )?.bonus?.bonusValue[unlockedStars - 1]
 
-  console.log(
-    'bonus type:' + familyBonusesType + 'bonus value:' + familyBonusesValue,
-  )
+  console.log(familyBonusesType, familyBonusesValue)
+
+  if (familyBonusesType && familyBonusesValue) {
+    switch (familyBonusesType) {
+      case 'stardustMultiplier':
+        usePlayerStore().stardustMultiplier += familyBonusesValue
+        break
+
+      case 'clicMultiplier':
+        usePlayerStore().clicMultiplier += familyBonusesValue
+        break
+    }
+  } else {
+    console.log('No family bonuses found')
+  }
 }
 
 function closeButton() {
