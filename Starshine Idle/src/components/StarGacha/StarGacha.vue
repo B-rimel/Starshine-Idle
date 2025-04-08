@@ -23,6 +23,7 @@
 import { ref } from 'vue'
 import database from '../../assets/StarDatabase.json'
 import { usePlayerStore } from '@/stores/player'
+import { useCurrencyStore } from '@/stores/currency'
 
 defineProps({
   isVisible: {
@@ -62,24 +63,10 @@ function pullGacha() {
     viewPulled.value = true
     foundStar.unlocked = true
     foundStar.owned = 1
-    console.log('Pulled Star:', foundStar.starName)
-  } else {
-    console.log('Star not found')
   }
 
-  checkStarFamily()
   checkStarFamilyBonuses()
-}
-
-function checkStarFamily() {
-  //Get the pullled star's family
-  const pulledStarFamily = pulled.value.family
-
-  //Count the number of unlocked stars in its family
-  const unlockedStars = database.starsDatabase.filter(
-    star => star.family === pulledStarFamily && star.unlocked == true,
-  ).length
-  console.log('Unlocked stars in family:' + pulledStarFamily, unlockedStars)
+  updateStardustCount()
 }
 
 function checkStarFamilyBonuses() {
@@ -97,21 +84,40 @@ function checkStarFamilyBonuses() {
     family => family.familyName === pulledStarFamily,
   )?.bonus?.bonusValue[unlockedStars - 1]
 
-  console.log(familyBonusesType, familyBonusesValue)
-
   if (familyBonusesType && familyBonusesValue) {
     switch (familyBonusesType) {
       case 'stardustMultiplier':
-        usePlayerStore().stardustMultiplier += familyBonusesValue
+        usePlayerStore().stardustMultiplier = familyBonusesValue
+        console.log(
+          pulled.value.starName,
+          pulled.value.family,
+          familyBonusesType,
+          familyBonusesValue,
+        )
         break
 
       case 'clicMultiplier':
-        usePlayerStore().clicMultiplier += familyBonusesValue
+        usePlayerStore().clicMultiplier = familyBonusesValue
+        console.log(
+          pulled.value.starName,
+          pulled.value.family,
+          familyBonusesType,
+          familyBonusesValue,
+        )
         break
     }
-  } else {
-    console.log('No family bonuses found')
   }
+}
+
+function updateStardustCount() {
+  let initial = 0
+  for (const star of StarDatabase.value.starsDatabase.filter(
+    star => star.unlocked === true,
+  )) {
+    initial += star.stardustGeneration
+  }
+  useCurrencyStore().stardustGeneration = initial
+  console.log(useCurrencyStore().stardustGeneration)
 }
 
 function closeButton() {

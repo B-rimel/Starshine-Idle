@@ -85,6 +85,7 @@ function updateStardustCount() {
     initial += star.stardustGeneration
   }
   useCurrencyStore().stardustGeneration = initial
+  console.log(useCurrencyStore().stardustGeneration)
 }
 </script>
 
