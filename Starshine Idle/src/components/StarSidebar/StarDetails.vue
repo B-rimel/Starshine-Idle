@@ -72,8 +72,6 @@ function buyStar(star: Star) {
     playerStore.saveStarDb()
     updateStardustCount()
     console.log('db saved')
-  } else {
-    console.log('insufficient stardust')
   }
 }
 

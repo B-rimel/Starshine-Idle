@@ -19,6 +19,9 @@ onBeforeMount(() => {
   currencyStore.stardustCount = parseInt(
     (localStorage.getItem('stardust') as string) ?? 0,
   )
+  StarDatabase.starsDatabase = JSON.parse(
+    (localStorage.getItem('stardb') as string) ?? '[]',
+  )
   if (Date.now() > lastSave.value.getTime() + 5 * 60 * 1000) {
     //Do something
   }
