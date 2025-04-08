@@ -26,8 +26,7 @@ export const usePlayerStore = defineStore('player', {
     },
     handleClick() {
       const currencyStore = useCurrencyStore()
-      currencyStore.stardustCount += this.clicPower
-      console.log('Clicked for ' + this.clicPower)
+      currencyStore.stardustCount += this.clicPower * this.clicMultiplier
     },
   },
 })
