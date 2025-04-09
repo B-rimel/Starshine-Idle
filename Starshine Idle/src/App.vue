@@ -44,29 +44,31 @@ const toggleGacha = () => {
 <template>
   <div id="wrapper">
     <div id="sidebar">
-      <div>
-        <p>Stardust : {{ Math.floor(currencyStore.stardustCount) }}</p>
-        <p>Click multiplier : {{ usePlayerStore().clicMultiplier }}</p>
-        <p>Stardust multiplier : {{ usePlayerStore().stardustMultiplier }}</p>
-      </div>
-      <div class="devButtons">
-        <button
-          v-on:click="
-            currencyStore.stardustCount += currencyStore.stardustGeneration
-          "
-        >
-          Add Stardust
-        </button>
-        <button v-on:click="playerStore.resetGame">Reset game</button>
-      </div>
-      <nav class="navButtons">
-        <button>Passives</button>
-        <button v-on:click="toggleGacha">Get new stars</button>
-        <button>Sort by</button>
-        <button>Collection</button>
-        <button>Achievements</button>
+      <nav id="buttonsBox">
+        <div>
+          <p>Stardust : {{ Math.floor(currencyStore.stardustCount) }}</p>
+          <p>Click multiplier : {{ usePlayerStore().clicMultiplier }}</p>
+          <p>Stardust multiplier : {{ usePlayerStore().stardustMultiplier }}</p>
+        </div>
+        <div class="devButtons">
+          <button
+            v-on:click="
+              currencyStore.stardustCount += currencyStore.stardustGeneration
+            "
+          >
+            Add Stardust
+          </button>
+          <button v-on:click="playerStore.resetGame">Reset game</button>
+        </div>
+        <nav class="navButtons">
+          <button>Passives</button>
+          <button v-on:click="toggleGacha">Get new stars</button>
+          <button>Sort by</button>
+          <button>Collection</button>
+          <button>Achievements</button>
+        </nav>
       </nav>
-      <StarSidebar />
+      <StarSidebar id="starsBox" />
     </div>
     <div id="interface">
       <StarGacha
@@ -80,6 +82,14 @@ const toggleGacha = () => {
 </template>
 
 <style scoped>
+#buttonsBox {
+  height: 25vh;
+}
+
+#starsBox {
+  height: 75vh;
+  overflow-y: auto;
+}
 .navButtons {
   display: flex;
   justify-content: space-between;
