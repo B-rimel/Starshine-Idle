@@ -61,7 +61,7 @@ const toggleGacha = () => {
       </div>
       <nav class="navButtons">
         <button>Passives</button>
-        <button>Get new stars</button>
+        <button v-on:click="toggleGacha">Get new stars</button>
         <button>Sort by</button>
         <button>Collection</button>
         <button>Achievements</button>
@@ -69,9 +69,6 @@ const toggleGacha = () => {
       <StarSidebar />
     </div>
     <div id="interface">
-      <nav class="nav">
-        <button id="gachaButton" v-on:click="toggleGacha">Get new stars</button>
-      </nav>
       <StarGacha
         v-if="isGachaVisible"
         :is-visible="isGachaVisible"

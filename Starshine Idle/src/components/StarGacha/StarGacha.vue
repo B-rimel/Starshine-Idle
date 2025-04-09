@@ -90,25 +90,15 @@ function checkStarFamilyBonuses() {
     switch (familyBonusesType) {
       case 'stardustMultiplier':
         usePlayerStore().stardustMultiplier = familyBonusesValue
-        console.log(
-          pulled.value.starName,
-          pulled.value.family,
-          familyBonusesType,
-          familyBonusesValue,
-        )
         break
 
       case 'clicMultiplier':
-        usePlayerStore().clicMultiplier = familyBonusesValue
+        usePlayerStore().clicMultiplier +=
+          (useCurrencyStore().stardustGeneration / 100) * familyBonusesValue
         console.log(usePlayerStore().$state)
-        console.log(
-          pulled.value.starName,
-          pulled.value.family,
-          familyBonusesType,
-          familyBonusesValue,
-        )
         break
     }
+    localStorage.setItem('player', JSON.stringify(usePlayerStore().$state))
   }
 }
 

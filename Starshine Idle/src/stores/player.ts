@@ -5,11 +5,11 @@ import { useCurrencyStore } from './currency'
 export const usePlayerStore = defineStore('player', {
   state: () => ({
     lastSave: Date.now(),
-    playerCurrency: 0,
+    playerCurrency: 0 as number,
     starDb: starDatabase.starsDatabase,
-    clicPower: 1,
-    clicMultiplier: 1,
-    stardustMultiplier: 1,
+    clicPower: 1 as number,
+    clicMultiplier: 1 as number,
+    stardustMultiplier: 1 as number,
   }),
 
   actions: {
@@ -25,7 +25,13 @@ export const usePlayerStore = defineStore('player', {
     },
     handleClick() {
       const currencyStore = useCurrencyStore()
-      currencyStore.stardustCount += this.clicPower * this.clicMultiplier
+      if (this.clicMultiplier > 1) {
+        currencyStore.stardustCount +=
+          (currencyStore.stardustGeneration / 100) * this.clicMultiplier
+      } else {
+        currencyStore.stardustCount += 1
+      }
+      console.log(this.clicPower)
     },
   },
 })
