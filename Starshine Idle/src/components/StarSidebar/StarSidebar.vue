@@ -35,22 +35,6 @@ import { usePlayerStore } from '@/stores/player'
   padding: 5px;
   border-radius: 24px;
   margin: 5px;
-  background-color: #9029d0;
-  background-image: linear-gradient(#9029d0, #3b429f);
-}
-
-.detail::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url('@/assets/Assets/UI/fond_carte.svg');
-  background-repeat: no-repeat;
-  opacity: 0.2; /* Apply opacity to the SVG only */
-
-  pointer-events: none; /* Ensure it doesn't block interactions */
 }
 
 button {

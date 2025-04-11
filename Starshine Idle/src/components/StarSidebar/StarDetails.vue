@@ -1,5 +1,5 @@
 <template>
-  <div class="detail">
+  <div class="detail" v-bind:style="{ backgroundImage }">
     <div class="star">
       <img src="../../assets/Assets/Stars/default.png" alt="" class="star" />
     </div>
@@ -20,6 +20,7 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useCurrencyStore } from '@/stores/currency'
 import { usePlayerStore } from '@/stores/player'
 import StarDatabase from '@/assets/StarDatabase.json'
@@ -38,8 +39,16 @@ const star = defineProps({
   class: { type: String, required: true },
 })
 
-console.log(star)
+const backgroundImages = {
+  common: `/src/assets/Assets/UI/cards/card_common.webp` as string,
+  rare: `/src/assets/Assets/UI/cards/card_rare.webp` as string,
+  legendary: `/src/assets/Assets/UI/cards/card_legendary.webp` as string,
+  unique: `/src/assets/Assets/UI/cards/card_unique.webp` as string,
+}
 
+const backgroundImage = computed(() => {
+  return `url(${backgroundImages[star.rarity as string]})`
+})
 const currencyStore = useCurrencyStore()
 const playerStore = usePlayerStore()
 
@@ -91,6 +100,8 @@ function updateStardustCount() {
 .detail {
   display: flex;
   position: relative;
+  background-size: fill;
+  background-position: center;
 }
 
 .star {
