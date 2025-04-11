@@ -47,7 +47,7 @@ const backgroundImages = {
 }
 
 const backgroundImage = computed(() => {
-  return `url(${backgroundImages[star.rarity as string]})`
+  return `url(${backgroundImages[star.rarity as keyof typeof backgroundImages]})`
 })
 const currencyStore = useCurrencyStore()
 const playerStore = usePlayerStore()
