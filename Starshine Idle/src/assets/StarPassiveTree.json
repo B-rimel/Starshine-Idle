@@ -1,0 +1,44 @@
+{
+  "passives": [
+    {
+      "id": 0,
+      "name": "tree_1",
+      "description": "This is the start of your journey through the stars !",
+      "unlocked": true,
+      "position": {
+        "x": 0.5,
+        "y": 0.9
+      }
+    },
+    {
+      "id": 1,
+      "name": "tree_2",
+      "parent": 0,
+      "description": "This is the second node of your journey through the stars !",
+      "unlocked": true,
+      "position": {
+        "x": 0.3,
+        "y": 0.5
+      }
+    },
+    {
+      "id": 2,
+      "name": "tree_3",
+      "parent": 0,
+      "description": "This is the third node of your journey through the stars !",
+      "unlocked": false,
+      "position": {
+        "x": 0.7,
+        "y": 0.5
+      }
+    }
+  ],
+  "connections": [
+    {
+      "links": [0, 1]
+    },
+    {
+      "links": [0, 2]
+    }
+  ]
+}

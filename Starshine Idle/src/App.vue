@@ -8,9 +8,12 @@ import { onBeforeMount, ref } from 'vue'
 
 import { useCurrencyStore } from './stores/currency'
 import { usePlayerStore } from './stores/player'
+import StarPassiveTree from './components/StarPassiveTree.vue'
 
 const currencyStore = useCurrencyStore()
 const playerStore = usePlayerStore()
+
+const interfaceView = ref('interface')
 
 const lastSave = ref(new Date(playerStore.lastSave))
 
@@ -61,9 +64,9 @@ const toggleGacha = () => {
           <button v-on:click="playerStore.resetGame">Reset game</button>
         </div>
         <nav class="navButtons">
-          <button>Passives</button>
+          <button v-on:click="interfaceView = 'interface'">Click</button>
+          <button v-on:click="interfaceView = 'passiveTree'">Passives</button>
           <button v-on:click="toggleGacha">Get new stars</button>
-          <button>Sort by</button>
           <button>Collection</button>
           <button>Achievements</button>
         </nav>
@@ -76,7 +79,8 @@ const toggleGacha = () => {
         :is-visible="isGachaVisible"
         @closeGacha="isGachaVisible = false"
       />
-      <StarInterface />
+      <StarInterface v-if="interfaceView === 'interface'" />
+      <StarPassiveTree v-if="interfaceView === 'passiveTree'" />
     </div>
   </div>
 </template>

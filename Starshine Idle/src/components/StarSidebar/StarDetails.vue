@@ -1,5 +1,9 @@
 <template>
-  <div class="detail" v-bind:style="{ backgroundImage }">
+  <div
+    class="detail"
+    v-bind:style="{ backgroundImage }"
+    style="object-fit: contain"
+  >
     <div class="star">
       <img src="../../assets/Assets/Stars/default.png" alt="" class="star" />
     </div>
