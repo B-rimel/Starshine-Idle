@@ -59,6 +59,7 @@ function pullGacha() {
   )
 
   if (foundStar) {
+    console.log(foundStar)
     pulled.value = foundStar
     viewPulled.value = true
     foundStar.unlocked = true

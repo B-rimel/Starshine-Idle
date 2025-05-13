@@ -73,9 +73,10 @@ function buyStar(star: Star) {
   ) as Star
 
   const previsionalCost = star.cost * Math.pow(1.03, star.owned)
-  if (previsionalCost < currencyStore.stardustCount) {
+  if (previsionalCost < currencyStore.stardustCount && foundStar) {
     foundStar.cost = Math.floor(previsionalCost)
     foundStar.owned += 1
+    console.log(foundStar.stardustGeneration)
 
     foundStar.stardustGeneration = Math.floor(
       foundStar.stardustGeneration * Math.pow(1.02, star.owned),
@@ -89,9 +90,11 @@ function buyStar(star: Star) {
 }
 
 function updateStardustCount() {
+  console.log('updating')
   let initial = 0
-  for (const star of StarDatabase.starsDatabase.filter(
-    star => star.unlocked === true,
+  console.log(StarDatabase.starsDatabase)
+  for (const star of usePlayerStore().starDb.filter(
+    star => star.unlocked == true,
   )) {
     initial += star.stardustGeneration
   }

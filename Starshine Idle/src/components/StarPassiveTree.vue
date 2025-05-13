@@ -45,8 +45,17 @@
         v-for="(node, index) in starPassiveTree.passives"
         :key="index"
         :transform="`translate(${node.position.x * width}, ${node.position.y * height})`"
+        @mouseover="hoveredNode = node"
+        @mouseout="hoveredNode = null"
+        @click="node.unlocked = !node.unlocked"
+        v-on:click="console.log(node.unlocked)"
       >
-        <text class="node">{{ node.id }}</text>
+        <text class="node">
+          {{ node.id }}
+        </text>
+        <text class="nodeName">
+          {{ node.name }}
+        </text>
       </g>
     </svg>
   </div>
@@ -62,10 +71,17 @@ const passives = starPassiveTree.passives as Array<{
   unlocked: boolean
   position: { x: number; y: number }
 }>
-// const connections = starPassiveTree.connections as Array<{
-//   links: number[]
-// }>
 
+interface Node {
+  id: number
+  name: string
+  description: string
+  unlocked: boolean
+  position: { x: number; y: number }
+  parent?: number | undefined
+}
+
+const hoveredNode = ref<Node | null>(null)
 import { ref, onMounted } from 'vue'
 // import { usePlayerStore } from '@/stores/player'
 // import { useCurrencyStore } from '@/stores/currency'
@@ -92,6 +108,15 @@ onMounted(() => {
   z-index: 1;
   font-size: 20px;
   transform: translateX(-5px);
+}
+
+.nodeName {
+  z-index: 1;
+  font-size: 20px;
+  border: 1px black solid;
+  color: black;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .link {

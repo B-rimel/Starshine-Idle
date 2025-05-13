@@ -28,7 +28,6 @@ onBeforeMount(() => {
   }
 })
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const interval = setInterval(() => {
   currencyStore.stardustCount +=
     currencyStore.stardustGeneration * playerStore.stardustMultiplier
