@@ -2,43 +2,85 @@
   "passives": [
     {
       "id": 0,
-      "name": "tree_1",
-      "description": "This is the start of your journey through the stars !",
+      "name": "Castor",
+      "description": "Alpha Geminorum",
       "unlocked": true,
-      "position": {
-        "x": 0.5,
-        "y": 0.9
-      }
+      "position": { "x": 0.35, "y": 0.15 }
     },
     {
       "id": 1,
-      "name": "tree_2",
-      "parent": 0,
-      "description": "This is the second node of your journey through the stars !",
+      "name": "Pollux",
+      "description": "Beta Geminorum",
       "unlocked": true,
-      "position": {
-        "x": 0.3,
-        "y": 0.5
-      }
+      "position": { "x": 0.45, "y": 0.2 }
     },
     {
       "id": 2,
-      "name": "tree_3",
-      "parent": 0,
-      "description": "This is the third node of your journey through the stars !",
-      "unlocked": false,
-      "position": {
-        "x": 0.7,
-        "y": 0.5
-      }
+      "name": "Alhena",
+      "description": "Gamma Geminorum",
+      "unlocked": true,
+      "position": { "x": 0.65, "y": 0.75 }
+    },
+    {
+      "id": 3,
+      "name": "Tejat",
+      "description": "Mu Geminorum",
+      "unlocked": true,
+      "position": { "x": 0.58, "y": 0.7 }
+    },
+    {
+      "id": 4,
+      "name": "Propus",
+      "description": "Eta Geminorum",
+      "unlocked": true,
+      "position": { "x": 0.55, "y": 0.8 }
+    },
+    {
+      "id": 5,
+      "name": "Mebsuta",
+      "description": "Epsilon Geminorum",
+      "unlocked": true,
+      "position": { "x": 0.2, "y": 0.85 }
+    },
+    {
+      "id": 6,
+      "name": "Mekbuda",
+      "description": "Zeta Geminorum",
+      "unlocked": true,
+      "position": { "x": 0.3, "y": 0.55 }
+    },
+    {
+      "id": 7,
+      "name": "Wasat",
+      "description": "Delta Geminorum",
+      "unlocked": true,
+      "position": { "x": 0.5, "y": 0.45 }
+    },
+    {
+      "id": 8,
+      "name": "λ Gem",
+      "description": "Lambda Geminorum",
+      "unlocked": true,
+      "position": { "x": 0.38, "y": 0.25 }
+    },
+    {
+      "id": 9,
+      "name": "κ Gem",
+      "description": "Kappa Geminorum",
+      "unlocked": true,
+      "position": { "x": 0.55, "y": 0.5 }
     }
   ],
   "connections": [
-    {
-      "links": [0, 1]
-    },
-    {
-      "links": [0, 2]
-    }
+    { "links": [0, 8] },
+    { "links": [0, 6] },
+    { "links": [1, 7] },
+    { "links": [8, 6] },
+    { "links": [6, 5] },
+    { "links": [7, 9] },
+    { "links": [7, 3] },
+    { "links": [9, 2] },
+    { "links": [3, 2] },
+    { "links": [3, 4] }
   ]
 }

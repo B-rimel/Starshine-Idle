@@ -28,7 +28,7 @@ onBeforeMount(() => {
   }
 })
 
-const interval = setInterval(() => {
+setInterval(() => {
   currencyStore.stardustCount +=
     currencyStore.stardustGeneration * playerStore.stardustMultiplier
   playerStore.lastSave = Date.now()
