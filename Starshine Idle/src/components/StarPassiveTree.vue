@@ -62,7 +62,7 @@
 </template>
 
 <script setup lang="ts">
-import starPassiveTree from '@/assets/starPassiveTree.json'
+import starPassiveTree from '@/assets/StarPassiveTree.json'
 const passives = starPassiveTree.passives as Array<{
   id: number
   name: string
